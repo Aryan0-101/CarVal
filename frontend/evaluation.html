@@ -70,10 +70,11 @@
       </div>
   </main>
 
-  <script>
+  <script type="module">
     document.addEventListener('DOMContentLoaded', async () => {
         try {
-            const resp = await fetch('/api/evaluation_metrics');
+            const API_BASE = import.meta.env.VITE_API_URL || '';
+            const resp = await fetch(`${API_BASE}/api/evaluation_metrics`);
             if (resp.ok) {
                 const data = await resp.json();
                 const report = data.report_text;

@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Fetch Metadata for dropdowns
     let hierarchy = {};
+    const API_BASE = import.meta.env.VITE_API_URL || '';
+    
     try {
-        const metaResp = await fetch('/api/metadata');
+        const metaResp = await fetch(`${API_BASE}/api/metadata`);
         if (metaResp.ok) {
             const data = await metaResp.json();
             hierarchy = data.hierarchy;
@@ -242,7 +244,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
 
         try {
-            const response = await fetch('/api/predict', {
+            const response = await fetch(`${API_BASE}/api/predict`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
