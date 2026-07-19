@@ -1,0 +1,3360 @@
+{
+  "data": {
+    "pricing": {
+      "extended_warranty_pricing": {
+        "assured": 4300.0,
+        "is_upgrade_cost_present": true,
+        "super_protect": 6615,
+        "ew_super_protect": 6615,
+        "protect_star": 4680,
+        "ew_protect_star": 4680,
+        "protect_plus": 4300,
+        "ew_protect_plus": 4300,
+        "protect": 7672,
+        "ew_protect": 7672
+      },
+      "servicing_package": {
+        "comprehensive_service_cost": {
+          "original_price": 4139,
+          "discounted_price": 4139,
+          "discount": 0
+        },
+        "standard_service_cost": {
+          "original_price": 2969,
+          "discounted_price": 2969,
+          "discount": 0
+        },
+        "1_year": 2969,
+        "2_year": 5938,
+        "3_year": 8907
+      },
+      "rsa_pricing": null,
+      "buyback_pricing": null,
+      "listing_price": {
+        "price": "4,13,000",
+        "message": "INCLUDED BENEFITS OF SPINNY ASSURED"
+      },
+      "on_road_price": null,
+      "market_price": {
+        "price": "4,54,300",
+        "message": "SAVE Rs.41300.0 WITH SPINNY ASSURED"
+      }
+    },
+    "price_breakdown_v2": {
+      "show_discounted_pricing": false,
+      "listing_price": 415137.0,
+      "listing_price_without_tax": 413000.0,
+      "original_price": 413000.0,
+      "original_price_without_tax": 413000.0,
+      "base_listing_price": 396430.0,
+      "discount_price": 0,
+      "discount_percent": 0,
+      "new_discount_amount": 0,
+      "new_discount_percent": 0,
+      "tax_data": {
+        "percentage": null,
+        "numeric": null
+      },
+      "original_base_listing_price": 396430.0,
+      "original_price_breakdown_present": true,
+      "discounted_price_without_add_on_and_tax": 396430.0,
+      "discounted_price_without_add_on_tax": 396430.0,
+      "is_manual_discount_change": false,
+      "is_same_listing_price_update": false,
+      "base_add_on_data_list": [
+        {
+          "name": "base_add_on",
+          "display_name": "RC transfer, insurance & more",
+          "value": 12700.0,
+          "round_off_value": 12000,
+          "infotip": true,
+          "on_click": [
+            {
+              "name": "rc_transfer",
+              "key": "rc_transfer",
+              "description": null,
+              "infotip": null,
+              "display_name": "RC transfer facilitation",
+              "value": 4000,
+              "order": 5
+            },
+            {
+              "name": "cleaning",
+              "key": "cleaning",
+              "description": "Upon delivery",
+              "infotip": null,
+              "display_name": "Car cleaning & dry cleaning",
+              "value": 4000,
+              "order": 10
+            },
+            {
+              "name": "servicing_cost",
+              "key": "servicing_cost",
+              "description": "Oil and air filter change, wheel balancing and alignment",
+              "infotip": null,
+              "display_name": "Pre delivery servicing cost",
+              "value": 4000,
+              "order": 15
+            },
+            {
+              "name": "fastag",
+              "key": "fastag",
+              "description": null,
+              "infotip": null,
+              "display_name": "FASTag cost",
+              "value": 200,
+              "order": 20
+            },
+            {
+              "name": "fuel_cost",
+              "key": "fuel_cost",
+              "description": "Upon delivery",
+              "infotip": null,
+              "display_name": "Fuel top-up",
+              "value": 500,
+              "order": 30
+            }
+          ]
+        },
+        {
+          "name": "base_warranty_cost",
+          "display_name": "Warranty (Protect)",
+          "value": 3870.0,
+          "infotip": false,
+          "on_click": null
+        },
+        {
+          "name": "fixes_and_upgrades",
+          "display_name": "Fixes & upgrades",
+          "value": "included",
+          "infotip": true,
+          "on_click": null
+        }
+      ],
+      "original_base_add_on_data_list": [
+        {
+          "name": "base_add_on",
+          "display_name": "RC transfer, insurance & more",
+          "value": 12700.0,
+          "round_off_value": 12000,
+          "infotip": true,
+          "on_click": [
+            {
+              "name": "rc_transfer",
+              "key": "rc_transfer",
+              "description": null,
+              "infotip": null,
+              "display_name": "RC transfer facilitation",
+              "value": 4000,
+              "order": 5
+            },
+            {
+              "name": "cleaning",
+              "key": "cleaning",
+              "description": "Upon delivery",
+              "infotip": null,
+              "display_name": "Car cleaning & dry cleaning",
+              "value": 4000,
+              "order": 10
+            },
+            {
+              "name": "servicing_cost",
+              "key": "servicing_cost",
+              "description": "Oil and air filter change, wheel balancing and alignment",
+              "infotip": null,
+              "display_name": "Pre delivery servicing cost",
+              "value": 4000,
+              "order": 15
+            },
+            {
+              "name": "fastag",
+              "key": "fastag",
+              "description": null,
+              "infotip": null,
+              "display_name": "FASTag cost",
+              "value": 200,
+              "order": 20
+            },
+            {
+              "name": "fuel_cost",
+              "key": "fuel_cost",
+              "description": "Upon delivery",
+              "infotip": null,
+              "display_name": "Fuel top-up",
+              "value": 500,
+              "order": 30
+            }
+          ]
+        },
+        {
+          "name": "base_warranty_cost",
+          "display_name": "Warranty (Protect)",
+          "value": 3870.0,
+          "infotip": false,
+          "on_click": null
+        },
+        {
+          "name": "fixes_and_upgrades",
+          "display_name": "Fixes & upgrades",
+          "value": "included",
+          "infotip": true,
+          "on_click": null
+        }
+      ],
+      "tax_add_on_data_list": [],
+      "base_plus_tax_add_ons": [
+        {
+          "name": "base_add_on",
+          "display_name": "RC transfer, insurance & more",
+          "value": 12700.0,
+          "round_off_value": 12000,
+          "infotip": true,
+          "on_click": [
+            {
+              "name": "rc_transfer",
+              "key": "rc_transfer",
+              "description": null,
+              "infotip": null,
+              "display_name": "RC transfer facilitation",
+              "value": 4000,
+              "order": 5
+            },
+            {
+              "name": "cleaning",
+              "key": "cleaning",
+              "description": "Upon delivery",
+              "infotip": null,
+              "display_name": "Car cleaning & dry cleaning",
+              "value": 4000,
+              "order": 10
+            },
+            {
+              "name": "servicing_cost",
+              "key": "servicing_cost",
+              "description": "Oil and air filter change, wheel balancing and alignment",
+              "infotip": null,
+              "display_name": "Pre delivery servicing cost",
+              "value": 4000,
+              "order": 15
+            },
+            {
+              "name": "fastag",
+              "key": "fastag",
+              "description": null,
+              "infotip": null,
+              "display_name": "FASTag cost",
+              "value": 200,
+              "order": 20
+            },
+            {
+              "name": "fuel_cost",
+              "key": "fuel_cost",
+              "description": "Upon delivery",
+              "infotip": null,
+              "display_name": "Fuel top-up",
+              "value": 500,
+              "order": 30
+            }
+          ]
+        },
+        {
+          "name": "base_warranty_cost",
+          "display_name": "Warranty (Protect)",
+          "value": 3870.0,
+          "infotip": false,
+          "on_click": null
+        },
+        {
+          "name": "fixes_and_upgrades",
+          "display_name": "Fixes & upgrades",
+          "value": "included",
+          "infotip": true,
+          "on_click": null
+        }
+      ],
+      "original_base_plus_tax_add_ons": [
+        {
+          "name": "base_add_on",
+          "display_name": "RC transfer, insurance & more",
+          "value": 12700.0,
+          "round_off_value": 12000,
+          "infotip": true,
+          "on_click": [
+            {
+              "name": "rc_transfer",
+              "key": "rc_transfer",
+              "description": null,
+              "infotip": null,
+              "display_name": "RC transfer facilitation",
+              "value": 4000,
+              "order": 5
+            },
+            {
+              "name": "cleaning",
+              "key": "cleaning",
+              "description": "Upon delivery",
+              "infotip": null,
+              "display_name": "Car cleaning & dry cleaning",
+              "value": 4000,
+              "order": 10
+            },
+            {
+              "name": "servicing_cost",
+              "key": "servicing_cost",
+              "description": "Oil and air filter change, wheel balancing and alignment",
+              "infotip": null,
+              "display_name": "Pre delivery servicing cost",
+              "value": 4000,
+              "order": 15
+            },
+            {
+              "name": "fastag",
+              "key": "fastag",
+              "description": null,
+              "infotip": null,
+              "display_name": "FASTag cost",
+              "value": 200,
+              "order": 20
+            },
+            {
+              "name": "fuel_cost",
+              "key": "fuel_cost",
+              "description": "Upon delivery",
+              "infotip": null,
+              "display_name": "Fuel top-up",
+              "value": 500,
+              "order": 30
+            }
+          ]
+        },
+        {
+          "name": "base_warranty_cost",
+          "display_name": "Warranty (Protect)",
+          "value": 3870.0,
+          "infotip": false,
+          "on_click": null
+        },
+        {
+          "name": "fixes_and_upgrades",
+          "display_name": "Fixes & upgrades",
+          "value": "included",
+          "infotip": true,
+          "on_click": null
+        }
+      ],
+      "discount_data_list": [
+        {
+          "name": "subtotal",
+          "infotip": false,
+          "display_name": "Subtotal",
+          "value": 413000.0,
+          "heading": true
+        },
+        {
+          "name": "price_drop",
+          "infotip": false,
+          "display_name": "Price drop",
+          "value": 0.0
+        },
+        {
+          "name": "discount_price",
+          "infotip": false,
+          "display_name": "Final payable amount",
+          "value": 413000.0,
+          "heading": true
+        }
+      ],
+      "discount_without_tax_data_list": [
+        {
+          "name": "subtotal",
+          "infotip": false,
+          "display_name": "Subtotal",
+          "value": 413000.0,
+          "heading": true
+        },
+        {
+          "name": "price_drop",
+          "infotip": false,
+          "display_name": "Price drop",
+          "value": 0
+        },
+        {
+          "name": "discount_price",
+          "infotip": false,
+          "display_name": "Discounted price",
+          "value": 413000.0,
+          "heading": true
+        }
+      ],
+      "listing_price_without_gst": 413000.0,
+      "gst": {
+        "name": "gst",
+        "display_name": "GST (govt. taxes)",
+        "value": 2137,
+        "infotip": true,
+        "on_click": [
+          {
+            "name": "gst_on_car_cleaning_and_dry_cleaning",
+            "key": "gst_on_car_cleaning_and_dry_cleaning",
+            "display_name": "GST on car cleaning & dry cleaning",
+            "description": null,
+            "infotip": null,
+            "value": 720,
+            "order": 10
+          },
+          {
+            "name": "gst_on_pre_delivery_servicing_cost",
+            "key": "gst_on_pre_delivery_servicing_cost",
+            "display_name": "GST on pre-delivery servicing cost",
+            "description": null,
+            "infotip": null,
+            "value": 720,
+            "order": 20
+          },
+          {
+            "name": "gst_on_warranty_plan",
+            "key": "gst_on_warranty_plan",
+            "display_name": "GST on warranty plan",
+            "description": null,
+            "infotip": null,
+            "value": 697,
+            "order": 30
+          }
+        ]
+      }
+    },
+    "price_breakdown_v3": {
+      "listing_price": 415137.0,
+      "listing_price_without_gst": 413000.0,
+      "listing_price_without_tax": 409000.0,
+      "base_listing_price": 396430.0,
+      "tax_data": {
+        "percentage": null,
+        "numeric": null
+      },
+      "base_add_on_data_list": [
+        {
+          "name": "base_add_on",
+          "display_name": "Servicing, FASTag, fuel & more",
+          "value": 8700.0,
+          "round_off_value": 8000,
+          "infotip": true,
+          "on_click": [
+            {
+              "name": "cleaning",
+              "key": "cleaning",
+              "description": "Upon delivery",
+              "infotip": null,
+              "display_name": "Car cleaning & dry cleaning",
+              "value": 4000,
+              "order": 10
+            },
+            {
+              "name": "servicing_cost",
+              "key": "servicing_cost",
+              "description": "Oil and air filter change, wheel balancing and alignment",
+              "infotip": null,
+              "display_name": "Pre delivery servicing cost",
+              "value": 4000,
+              "order": 15
+            },
+            {
+              "name": "fastag",
+              "key": "fastag",
+              "description": null,
+              "infotip": null,
+              "display_name": "FASTag cost",
+              "value": 200,
+              "order": 20
+            },
+            {
+              "name": "fuel_cost",
+              "key": "fuel_cost",
+              "description": "At the time of delivery",
+              "infotip": null,
+              "display_name": "Fuel top-up",
+              "value": 500,
+              "order": 30
+            }
+          ]
+        },
+        {
+          "name": "base_warranty_cost",
+          "display_name": "Warranty (Protect)",
+          "value": 3870.0,
+          "infotip": false,
+          "on_click": null
+        },
+        {
+          "name": "fixes_and_upgrades",
+          "display_name": "Fixes & upgrades",
+          "value": "included",
+          "infotip": true,
+          "on_click": null
+        }
+      ],
+      "tax_add_on_data_list": [],
+      "mandatory_paid_add_ons_data_list": [
+        {
+          "name": "rc_transfer",
+          "key": "rc_transfer",
+          "description": null,
+          "infotip": null,
+          "display_name": "RC transfer facilitation",
+          "value": 4000,
+          "order": 5
+        }
+      ],
+      "gst": {
+        "name": "gst",
+        "display_name": "GST (govt. taxes)",
+        "value": 2137,
+        "infotip": true,
+        "on_click": [
+          {
+            "name": "gst_on_car_cleaning_and_dry_cleaning",
+            "key": "gst_on_car_cleaning_and_dry_cleaning",
+            "display_name": "GST on car cleaning & dry cleaning",
+            "description": null,
+            "infotip": null,
+            "value": 720,
+            "order": 10
+          },
+          {
+            "name": "gst_on_pre_delivery_servicing_cost",
+            "key": "gst_on_pre_delivery_servicing_cost",
+            "display_name": "GST on pre-delivery servicing cost",
+            "description": null,
+            "infotip": null,
+            "value": 720,
+            "order": 20
+          },
+          {
+            "name": "gst_on_warranty_plan",
+            "key": "gst_on_warranty_plan",
+            "display_name": "GST on warranty plan",
+            "description": null,
+            "infotip": null,
+            "value": 697,
+            "order": 30
+          }
+        ]
+      }
+    },
+    "discount_list": [
+      {
+        "value": 5000.0,
+        "type": "normal",
+        "start_time": "2026-07-17 00:00:00",
+        "end_time": "2026-07-17 23:59:59",
+        "discount_name": "Sale Discount",
+        "discount_icon": "https://assets.spinny.com/sp-file-system/public/2025-03-05/d3e204acdc544342b4f9f3abb1a4ca8c/raw/file.svg"
+      }
+    ],
+    "discount": {
+      "value": 5000.0,
+      "sale_type": "normal",
+      "end_time": "2026-07-17 23:59:59",
+      "icon": "https://assets.spinny.com/sp-file-system/public/2025-03-05/d3e204acdc544342b4f9f3abb1a4ca8c/raw/file.svg",
+      "discount_name": "Sale Discount",
+      "adjusted_mid_listing_price": 408000.0,
+      "final_discounted_price": 410137.0,
+      "final_discounted_price_without_gst": 408000.0
+    },
+    "discount_v3": {
+      "value": 5000.0,
+      "sale_type": "normal",
+      "end_time": "2026-07-17 23:59:59",
+      "icon": "https://assets.spinny.com/sp-file-system/public/2025-03-05/d3e204acdc544342b4f9f3abb1a4ca8c/raw/file.svg",
+      "discount_name": "Sale Discount",
+      "adjusted_mid_listing_price": 404000.0,
+      "final_discounted_price": 410137.0,
+      "final_discounted_price_without_gst": 408000.0
+    },
+    "booked": false,
+    "sold": false,
+    "upcoming": false,
+    "on_hold": false,
+    "hold_end_time": null,
+    "tag_status": null,
+    "make": "Hyundai",
+    "model": "Elite i20",
+    "variant": {
+      "id": 12291,
+      "display_name": "Sportz 1.2",
+      "full_name": "Hyundai Elite i20 Sportz 1.2",
+      "body_type": "hatchback"
+    },
+    "mileage": "26,644",
+    "round_off_mileage": "27K",
+    "make_year": 2017,
+    "make_month": "Jun",
+    "registration_year": 2017,
+    "registration_month": "Jul",
+    "price": "4,13,000",
+    "buy_back_pricing": null,
+    "inspection_report": {
+      "ev_details_meta_data": {
+        "battery_range_km": {
+          "min": "",
+          "max": ""
+        },
+        "motor_warranty": {
+          "kilometers": "",
+          "years": ""
+        },
+        "battery_warranty": {
+          "kilometers": "",
+          "years": ""
+        },
+        "comprehensive_warranty": {
+          "kilometers": "",
+          "years": ""
+        },
+        "state_of_health": {
+          "percent": ""
+        }
+      },
+      "report": {
+        "summary": {
+          "is_accidental": false
+        },
+        "sections": [
+          {
+            "data": [
+              {
+                "data": [
+                  {
+                    "icon": "driven_less",
+                    "tag": "metadata",
+                    "value": "Less driven per year"
+                  },
+                  {
+                    "icon": "safety",
+                    "tag": "catalogue",
+                    "value": "Comes with airbags"
+                  },
+                  {
+                    "icon": "entertainment",
+                    "tag": "catalogue",
+                    "value": "Comes with an integrated in-dash music system"
+                  },
+                  {
+                    "icon": "exterior",
+                    "tag": "catalogue",
+                    "value": "Comes with rear defogger"
+                  },
+                  {
+                    "icon": "comfort",
+                    "tag": "catalogue",
+                    "value": "Features steering-mounted controls"
+                  }
+                ],
+                "name": "Highlights"
+              },
+              {
+                "data": [
+                  {
+                    "images": [],
+                    "statement": [
+                      "15 Components have minor scratches",
+                      "2 Components have minor dent"
+                    ],
+                    "images_count": 0,
+                    "section": "Exterior",
+                    "subSection": "Body Panels",
+                    "budget": {
+                      "subStatement": null,
+                      "isBudget": false,
+                      "statement": null
+                    }
+                  },
+                  {
+                    "images": [],
+                    "statement": [
+                      "2 Components have minor scratches"
+                    ],
+                    "images_count": 0,
+                    "section": "Exterior",
+                    "subSection": "Standard Fitments & Features",
+                    "budget": {
+                      "subStatement": null,
+                      "isBudget": false,
+                      "statement": null
+                    }
+                  },
+                  {
+                    "images": [],
+                    "statement": [
+                      "Left SVM Cover has minor scratches"
+                    ],
+                    "images_count": 0,
+                    "section": "Exterior",
+                    "subSection": "Glasses & Mirrors",
+                    "budget": {
+                      "subStatement": null,
+                      "isBudget": false,
+                      "statement": null
+                    }
+                  }
+                ],
+                "name": "Imperfections"
+              },
+              {
+                "data": [
+                  {
+                    "images": [],
+                    "statement": [
+                      "12 Components are repaired & repainted"
+                    ],
+                    "images_count": 0,
+                    "section": "Exterior",
+                    "subSection": "Body Panels",
+                    "budget": {
+                      "subStatement": null,
+                      "isBudget": false,
+                      "statement": null
+                    }
+                  },
+                  {
+                    "images": [],
+                    "statement": [
+                      "Audio/Stereo Console is a aftermarket fitment"
+                    ],
+                    "images_count": 0,
+                    "section": "Interior",
+                    "subSection": "Standard Fitments & Features",
+                    "budget": {
+                      "subStatement": null,
+                      "isBudget": false,
+                      "statement": null
+                    }
+                  }
+                ],
+                "name": "Fixed"
+              },
+              {
+                "data": [],
+                "total_cost": null,
+                "name": "Fixes we recommended"
+              }
+            ],
+            "name": "Overview",
+            "position": 1
+          },
+          {
+            "summary": {
+              "total_fixed": 0,
+              "total_imperfection": 0
+            },
+            "issue_state": [],
+            "buckets": [
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Engine Assembly",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 1,
+                "tested_ok": [
+                  "No back compression.",
+                  "No overheating, misfiring or blue/grey/white smoke."
+                ]
+              },
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Air Supply System",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 3,
+                "tested_ok": [
+                  "No leaks in gaskets or seals. Throttle body is clean."
+                ]
+              },
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Fuel Supply System",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 4,
+                "tested_ok": [
+                  "No leaks found in fuel tank, fuel lines, or rails."
+                ]
+              },
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Exhaust System",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 5,
+                "tested_ok": [
+                  "No leaks or damages."
+                ]
+              },
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Ignition System",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 6,
+                "tested_ok": [
+                  "Alternator and starter motor have no issues.",
+                  "No wiring damages. Battery and charging voltage is in acceptable range."
+                ]
+              }
+            ],
+            "name": "Engine & Peripherals",
+            "position": 2,
+            "display_name": "Engine",
+            "tyre_life": []
+          },
+          {
+            "summary": {
+              "total_fixed": 0,
+              "total_imperfection": 0
+            },
+            "issue_state": [],
+            "buckets": [
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Transmission",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 1,
+                "tested_ok": [
+                  "No issues in shifting gears.",
+                  "No leaks from gearbox."
+                ]
+              }
+            ],
+            "name": "Drivetrain",
+            "position": 3,
+            "display_name": "Drivetrain",
+            "tyre_life": []
+          },
+          {
+            "summary": {
+              "total_fixed": 0,
+              "total_imperfection": 0
+            },
+            "issue_state": [],
+            "buckets": [
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Core Structure",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 1,
+                "tested_ok": [
+                  "No corrosion or crack in any of the components."
+                ]
+              },
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Support Structure",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 2,
+                "tested_ok": [
+                  "No corrosion or crack in any of the components."
+                ]
+              }
+            ],
+            "name": "Body Structure (Chassis)",
+            "position": 4,
+            "display_name": "Body Structure",
+            "tyre_life": []
+          },
+          {
+            "summary": {
+              "total_fixed": 1,
+              "total_imperfection": 4
+            },
+            "issue_state": [],
+            "buckets": [
+              {
+                "components": [
+                  {
+                    "issue_id": 10,
+                    "terminating_bucket": [
+                      {
+                        "related_media": [],
+                        "name": "Front Bumper",
+                        "statement": "Front Bumper is repaired & repainted"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Rear Bumper",
+                        "statement": "Rear Bumper is repaired & repainted"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Dickey Door",
+                        "statement": "Dickey Door is repaired & repainted"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Front Left Door",
+                        "statement": "Front Left Door is repaired & repainted"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Front Right Door",
+                        "statement": "Front Right Door is repaired & repainted"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Rear Left Door",
+                        "statement": "Rear Left Door is repaired & repainted"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Rear Right Door",
+                        "statement": "Rear Right Door is repaired & repainted"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Left Fender",
+                        "statement": "Left Fender is repaired & repainted"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Right Fender",
+                        "statement": "Right Fender is repaired & repainted"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Left Quarter Panel",
+                        "statement": "Left Quarter Panel is repaired & repainted"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Left Running Board",
+                        "statement": "Left Running Board is repaired & repainted"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Right Running Board",
+                        "statement": "Right Running Board is repaired & repainted"
+                      }
+                    ],
+                    "name": "Repaired & Repainted",
+                    "statement": null,
+                    "issue_info_tag": null,
+                    "outcome": "fixed"
+                  },
+                  {
+                    "issue_id": 6018,
+                    "terminating_bucket": [
+                      {
+                        "related_media": [],
+                        "name": "Roof Panel",
+                        "statement": "Roof Panel has minor dent"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Right Running Board",
+                        "statement": "Right Running Board has minor dent"
+                      }
+                    ],
+                    "name": "Minor Dent",
+                    "statement": null,
+                    "issue_info_tag": null,
+                    "outcome": "Imperfection"
+                  },
+                  {
+                    "issue_id": 7498,
+                    "terminating_bucket": [
+                      {
+                        "related_media": [],
+                        "name": "Roof Panel",
+                        "statement": "Roof Panel has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Bonnet",
+                        "statement": "Bonnet has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Front Bumper",
+                        "statement": "Front Bumper has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Rear Bumper",
+                        "statement": "Rear Bumper has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Dickey Door",
+                        "statement": "Dickey Door has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Front Left Door",
+                        "statement": "Front Left Door has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Front Right Door",
+                        "statement": "Front Right Door has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Rear Left Door",
+                        "statement": "Rear Left Door has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Rear Right Door",
+                        "statement": "Rear Right Door has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Left Fender",
+                        "statement": "Left Fender has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Right Fender",
+                        "statement": "Right Fender has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Left Quarter Panel",
+                        "statement": "Left Quarter Panel has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Right Quarter Panel",
+                        "statement": "Right Quarter Panel has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Left Running Board",
+                        "statement": "Left Running Board has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Right Running Board",
+                        "statement": "Right Running Board has minor scratches"
+                      }
+                    ],
+                    "name": "Minor Scratches",
+                    "statement": null,
+                    "issue_info_tag": null,
+                    "outcome": "Imperfection"
+                  }
+                ],
+                "bucket_summary": [
+                  "15 Components have minor scratches",
+                  "12 Components are repaired & repainted",
+                  "2 Components have minor dent"
+                ],
+                "name": "Body Panels",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 1,
+                "tested_ok": [
+                  "No corrosion in the panels."
+                ]
+              },
+              {
+                "components": [
+                  {
+                    "issue_id": 1475,
+                    "terminating_bucket": [
+                      {
+                        "related_media": [],
+                        "name": "Left SVM Cover",
+                        "statement": "Left SVM Cover has minor scratches"
+                      }
+                    ],
+                    "name": "Minor Scratches",
+                    "statement": null,
+                    "issue_info_tag": null,
+                    "outcome": "Imperfection"
+                  }
+                ],
+                "bucket_summary": [
+                  "Left SVM Cover has minor scratches"
+                ],
+                "name": "Glasses & Mirrors",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 2,
+                "tested_ok": [
+                  "No chipping or cracks."
+                ]
+              },
+              {
+                "components": [
+                  {
+                    "issue_id": 3456,
+                    "terminating_bucket": [
+                      {
+                        "related_media": [],
+                        "name": "Left Headlight",
+                        "statement": "Left Headlight has minor scratches"
+                      },
+                      {
+                        "related_media": [],
+                        "name": "Right Headlight",
+                        "statement": "Right Headlight has minor scratches"
+                      }
+                    ],
+                    "name": "Minor Scratches",
+                    "statement": null,
+                    "issue_info_tag": null,
+                    "outcome": "Imperfection"
+                  }
+                ],
+                "bucket_summary": [
+                  "2 Components have minor scratches"
+                ],
+                "name": "Standard Fitments & Features",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 3,
+                "tested_ok": [
+                  "All electric/electronic components are functioning properly."
+                ]
+              }
+            ],
+            "name": "Exterior",
+            "position": 5,
+            "display_name": "Exterior",
+            "tyre_life": []
+          },
+          {
+            "summary": {
+              "total_fixed": 1,
+              "total_imperfection": 0
+            },
+            "issue_state": [],
+            "buckets": [
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Air Conditioning System",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 1,
+                "tested_ok": [
+                  "Cooling/Heating functions are working effectively.",
+                  "No leaks/damages were found in the system.",
+                  "Compressor is working properly."
+                ]
+              },
+              {
+                "components": [
+                  {
+                    "issue_id": 2765,
+                    "terminating_bucket": [
+                      {
+                        "related_media": [],
+                        "name": "Audio/Stereo Console",
+                        "statement": "Audio/Stereo Console is a aftermarket fitment"
+                      }
+                    ],
+                    "name": "Aftermarket Fitment",
+                    "statement": null,
+                    "issue_info_tag": null,
+                    "outcome": "fixed"
+                  }
+                ],
+                "bucket_summary": [
+                  "Audio/Stereo Console is a aftermarket fitment"
+                ],
+                "name": "Standard Fitments & Features",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 2,
+                "tested_ok": [
+                  "All speakers and controls function properly.",
+                  "Central locking is functioning properly.",
+                  "All interior lights are working properly."
+                ]
+              }
+            ],
+            "name": "Interior",
+            "position": 6,
+            "display_name": "Interior",
+            "tyre_life": []
+          },
+          {
+            "summary": {
+              "total_fixed": 0,
+              "total_imperfection": 0
+            },
+            "issue_state": [],
+            "buckets": [
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Brakes",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 1,
+                "tested_ok": [
+                  "No damage on disc/drum brakes. Hoses/lines have no leaks/cracks.",
+                  "No squealing/screeching noise while driving."
+                ]
+              },
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Steering",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 2,
+                "tested_ok": [
+                  "No leaks or damages in Steering Rack.",
+                  "No performance issues in steering components."
+                ]
+              },
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Suspension",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 3,
+                "tested_ok": [
+                  "No leakages in shocks or struts.",
+                  "No play/cracks in ball joints & bushes."
+                ]
+              }
+            ],
+            "name": "Mechanical",
+            "position": 7,
+            "display_name": "Mechanical",
+            "tyre_life": []
+          },
+          {
+            "summary": {
+              "total_fixed": 0,
+              "total_imperfection": 0
+            },
+            "issue_state": [],
+            "buckets": [
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Tyres",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 1,
+                "tested_ok": [
+                  "No bulge or uneven wear."
+                ]
+              },
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Wheels",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 2,
+                "tested_ok": [
+                  "No cracks. Size is ok."
+                ]
+              }
+            ],
+            "name": "Wheels & Tyres",
+            "position": 8,
+            "display_name": "Wheels & Tyres",
+            "tyre_life": [
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/9900799d77a54b8994a49dba5ea45de8/raw/file.JPG",
+                "km_driven": 11000,
+                "tyre_percentage": 35.0,
+                "tyre_name": "Right Front Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/f2ba445008e645a5b92218b91ccd4e54/raw/file.JPG",
+                "km_driven": 11000,
+                "tyre_percentage": 35.0,
+                "tyre_name": "Left Front Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/97f5d631e5724fb28f57b59cac214e8e/raw/file.JPG",
+                "km_driven": 40000,
+                "tyre_percentage": 80.0,
+                "tyre_name": "Right Rear Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/39f8f8aeb32d4602b8f27b042845d037/raw/file.JPG",
+                "km_driven": 18000,
+                "tyre_percentage": 45.0,
+                "tyre_name": "Left Rear Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/c312768a21df4e4c94bb01878c8dd48f/raw/file.JPG",
+                "km_driven": 5000,
+                "tyre_percentage": 25.0,
+                "tyre_name": "Spare Tyre"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "inspection_report_v2": {
+      "ev_details_meta_data": {
+        "battery_range_km": {
+          "min": "",
+          "max": ""
+        },
+        "motor_warranty": {
+          "kilometers": "",
+          "years": ""
+        },
+        "battery_warranty": {
+          "kilometers": "",
+          "years": ""
+        },
+        "comprehensive_warranty": {
+          "kilometers": "",
+          "years": ""
+        },
+        "state_of_health": {
+          "percent": ""
+        }
+      },
+      "inspection_report_summary": {
+        "inspection_points": {
+          "car_condition": {
+            "data": [
+              {
+                "no_of_parts": 0,
+                "name": "core_structure_intact",
+                "display_name": "Core Structure Intact",
+                "type": "tested_ok",
+                "priority": null
+              },
+              {
+                "no_of_parts": 0,
+                "name": "non-tampered_odometer",
+                "display_name": "Non-tampered odometer",
+                "type": "tested_ok",
+                "priority": null
+              },
+              {
+                "no_of_parts": 0,
+                "name": "non_flooded",
+                "display_name": "Non Flooded",
+                "type": "tested_ok",
+                "priority": null
+              },
+              {
+                "no_of_parts": 0,
+                "name": "battery_condition",
+                "display_name": "Battery Condition",
+                "type": "tested_ok",
+                "priority": null
+              },
+              {
+                "no_of_parts": 0,
+                "name": "drivetrain",
+                "display_name": "Drivetrain",
+                "type": "tested_ok",
+                "priority": null
+              },
+              {
+                "no_of_parts": 0,
+                "name": "body_structure",
+                "display_name": "Body Structure",
+                "type": "tested_ok",
+                "priority": null
+              },
+              {
+                "no_of_parts": 0,
+                "name": "mechanical",
+                "display_name": "Mechanical",
+                "type": "tested_ok",
+                "priority": null
+              },
+              {
+                "no_of_parts": 0,
+                "name": "interior",
+                "display_name": "Interior",
+                "type": "tested_ok",
+                "priority": null
+              },
+              {
+                "no_of_parts": 2,
+                "name": "minor_dent",
+                "display_name": "Minor Dent",
+                "type": "imperfections",
+                "priority": "minor"
+              },
+              {
+                "no_of_parts": 18,
+                "name": "minor_scratches",
+                "display_name": "Minor Scratches",
+                "type": "imperfections",
+                "priority": "minor"
+              }
+            ],
+            "name": "car_condition",
+            "statement": "Based on 200 points inspection"
+          },
+          "battery_condition": {
+            "data": [],
+            "name": "battery_condition"
+          },
+          "fixes_done": {
+            "data": [
+              {
+                "no_of_parts": 12,
+                "name": "Repaired & Repainted"
+              }
+            ],
+            "name": "fixes_done",
+            "statement": "Quality-driven fixes and upgrades"
+          },
+          "customised_accessories": {
+            "data": [
+              "Audio/Stereo Console"
+            ],
+            "name": "customised_accessories",
+            "statement": "This car comes with additional customised features beyond original specifications."
+          },
+          "tyre_life_remaining": {
+            "data": [
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/9900799d77a54b8994a49dba5ea45de8/raw/file.JPG",
+                "km_driven": 11000,
+                "tyre_percentage": 35.0,
+                "tyre_name": "Right Front Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/f2ba445008e645a5b92218b91ccd4e54/raw/file.JPG",
+                "km_driven": 11000,
+                "tyre_percentage": 35.0,
+                "tyre_name": "Left Front Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/97f5d631e5724fb28f57b59cac214e8e/raw/file.JPG",
+                "km_driven": 40000,
+                "tyre_percentage": 80.0,
+                "tyre_name": "Right Rear Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/39f8f8aeb32d4602b8f27b042845d037/raw/file.JPG",
+                "km_driven": 18000,
+                "tyre_percentage": 45.0,
+                "tyre_name": "Left Rear Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/c312768a21df4e4c94bb01878c8dd48f/raw/file.JPG",
+                "km_driven": 5000,
+                "tyre_percentage": 25.0,
+                "tyre_name": "Spare Tyre"
+              }
+            ],
+            "name": "tyre_life_remaining"
+          }
+        }
+      },
+      "inspection_report_detail": {
+        "highlights": {
+          "data": [
+            {
+              "icon": "driven_less",
+              "tag": "metadata",
+              "value": "Less driven per year"
+            },
+            {
+              "icon": "safety",
+              "tag": "catalogue",
+              "value": "Comes with airbags"
+            },
+            {
+              "icon": "entertainment",
+              "tag": "catalogue",
+              "value": "Comes with an integrated in-dash music system"
+            },
+            {
+              "icon": "exterior",
+              "tag": "catalogue",
+              "value": "Comes with rear defogger"
+            },
+            {
+              "icon": "comfort",
+              "tag": "catalogue",
+              "value": "Features steering-mounted controls"
+            }
+          ],
+          "name": "highlights"
+        },
+        "report": {
+          "car_condition": {
+            "engine": {
+              "summary": {
+                "total_fixed": 0,
+                "total_imperfection": 0
+              },
+              "issue_state": [],
+              "data": [
+                {
+                  "name": "Engine Assembly",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No overheating, misfiring or blue/grey/white smoke.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "No back compression.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Air Supply System",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No leaks in gaskets or seals. Throttle body is clean.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                },
+                {
+                  "name": "CNG",
+                  "section_data": []
+                },
+                {
+                  "name": "Fuel Supply System",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No leaks found in fuel tank, fuel lines, or rails.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Exhaust System",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No leaks or damages.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Ignition System",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "Alternator and starter motor have no issues.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "No wiring damages. Battery and charging voltage is in acceptable range.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                }
+              ],
+              "buckets": [
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Engine Assembly",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 1,
+                  "tested_ok": [
+                    "No overheating, misfiring or blue/grey/white smoke.",
+                    "No back compression."
+                  ]
+                },
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Air Supply System",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 3,
+                  "tested_ok": [
+                    "No leaks in gaskets or seals. Throttle body is clean."
+                  ]
+                },
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "CNG",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 4,
+                  "tested_ok": []
+                },
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Fuel Supply System",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 5,
+                  "tested_ok": [
+                    "No leaks found in fuel tank, fuel lines, or rails."
+                  ]
+                },
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Exhaust System",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 6,
+                  "tested_ok": [
+                    "No leaks or damages."
+                  ]
+                },
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Ignition System",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 7,
+                  "tested_ok": [
+                    "Alternator and starter motor have no issues.",
+                    "No wiring damages. Battery and charging voltage is in acceptable range."
+                  ]
+                }
+              ],
+              "name": "Engine & Peripherals",
+              "statement": "Detailed checks on engine health, air & fuel supply, exhaust, and ignition systems.",
+              "position": 1,
+              "display_name": "engine",
+              "perks": null,
+              "tyre_life": [],
+              "status": []
+            },
+            "drivetrain": {
+              "summary": {
+                "total_fixed": 0,
+                "total_imperfection": 0
+              },
+              "issue_state": [],
+              "data": [
+                {
+                  "name": "Transmission",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No leaks from gearbox.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "No issues in shifting gears.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                }
+              ],
+              "buckets": [
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Transmission",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 1,
+                  "tested_ok": [
+                    "No leaks from gearbox.",
+                    "No issues in shifting gears."
+                  ]
+                }
+              ],
+              "name": "Drivetrain",
+              "statement": "Check out transmission details.",
+              "position": 2,
+              "display_name": "drivetrain",
+              "perks": null,
+              "tyre_life": [],
+              "status": []
+            },
+            "body_structure": {
+              "summary": {
+                "total_fixed": 0,
+                "total_imperfection": 0
+              },
+              "issue_state": [],
+              "data": [
+                {
+                  "name": "Core Structure",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No corrosion or crack in any of the components.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Support Structure",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No corrosion or crack in any of the components.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                }
+              ],
+              "buckets": [
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Core Structure",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 1,
+                  "tested_ok": [
+                    "No corrosion or crack in any of the components."
+                  ]
+                },
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Support Structure",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 2,
+                  "tested_ok": [
+                    "No corrosion or crack in any of the components."
+                  ]
+                }
+              ],
+              "name": "Body Structure (Chassis)",
+              "statement": "Covers core and support structures - the framework ensuring safety and strength.",
+              "position": 3,
+              "display_name": "body_structure",
+              "perks": null,
+              "tyre_life": [],
+              "status": []
+            },
+            "mechanical": {
+              "summary": {
+                "total_fixed": 0,
+                "total_imperfection": 0
+              },
+              "issue_state": [],
+              "data": [
+                {
+                  "name": "Brakes",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No squealing/screeching noise while driving.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "No damage on disc/drum brakes. Hoses/lines have no leaks/cracks.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Steering",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No leaks or damages in Steering Rack.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "No performance issues in steering components.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Suspension",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No play/cracks in ball joints & bushes.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "No leakages in shocks or struts.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                }
+              ],
+              "buckets": [
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Brakes",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 1,
+                  "tested_ok": [
+                    "No squealing/screeching noise while driving.",
+                    "No damage on disc/drum brakes. Hoses/lines have no leaks/cracks."
+                  ]
+                },
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Steering",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 2,
+                  "tested_ok": [
+                    "No leaks or damages in Steering Rack.",
+                    "No performance issues in steering components."
+                  ]
+                },
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Suspension",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 3,
+                  "tested_ok": [
+                    "No play/cracks in ball joints & bushes.",
+                    "No leakages in shocks or struts."
+                  ]
+                }
+              ],
+              "name": "Mechanical",
+              "statement": "Covers brakes, steering, and suspension for optimal mechanical performance.",
+              "position": 4,
+              "display_name": "mechanical",
+              "perks": null,
+              "tyre_life": [],
+              "status": []
+            },
+            "exterior": {
+              "summary": {
+                "total_fixed": 1,
+                "total_imperfection": 4
+              },
+              "issue_state": [],
+              "data": [
+                {
+                  "name": "Body Panels",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No corrosion in the panels.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Roof Panel has minor dent",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Right Running Board has minor dent",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Roof Panel has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Bonnet has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Front Bumper has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Rear Bumper has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Dickey Door has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Front Left Door has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Front Right Door has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Rear Left Door has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Rear Right Door has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Left Fender has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Right Fender has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Left Quarter Panel has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Right Quarter Panel has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Left Running Board has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Right Running Board has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Glasses & Mirrors",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No chipping or cracks.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Left SVM Cover has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Standard Fitments & Features",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "All electric/electronic components are functioning properly.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Left Headlight has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Right Headlight has minor scratches",
+                      "more_info": null,
+                      "type": "imperfection",
+                      "priority": null
+                    }
+                  ]
+                }
+              ],
+              "buckets": [
+                {
+                  "components": [
+                    {
+                      "issue_id": 6018,
+                      "terminating_bucket": [
+                        {
+                          "related_media": [],
+                          "name": "Roof Panel",
+                          "statement": "Roof Panel has minor dent"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Right Running Board",
+                          "statement": "Right Running Board has minor dent"
+                        }
+                      ],
+                      "name": "Minor Dent",
+                      "statement": null,
+                      "issue_info_tag": "",
+                      "priority": "minor",
+                      "outcome": "Imperfection"
+                    },
+                    {
+                      "issue_id": 7498,
+                      "terminating_bucket": [
+                        {
+                          "related_media": [],
+                          "name": "Roof Panel",
+                          "statement": "Roof Panel has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Bonnet",
+                          "statement": "Bonnet has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Front Bumper",
+                          "statement": "Front Bumper has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Rear Bumper",
+                          "statement": "Rear Bumper has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Dickey Door",
+                          "statement": "Dickey Door has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Front Left Door",
+                          "statement": "Front Left Door has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Front Right Door",
+                          "statement": "Front Right Door has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Rear Left Door",
+                          "statement": "Rear Left Door has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Rear Right Door",
+                          "statement": "Rear Right Door has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Left Fender",
+                          "statement": "Left Fender has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Right Fender",
+                          "statement": "Right Fender has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Left Quarter Panel",
+                          "statement": "Left Quarter Panel has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Right Quarter Panel",
+                          "statement": "Right Quarter Panel has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Left Running Board",
+                          "statement": "Left Running Board has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Right Running Board",
+                          "statement": "Right Running Board has minor scratches"
+                        }
+                      ],
+                      "name": "Minor Scratches",
+                      "statement": null,
+                      "issue_info_tag": "",
+                      "priority": "minor",
+                      "outcome": "Imperfection"
+                    },
+                    {
+                      "issue_id": 10,
+                      "terminating_bucket": [
+                        {
+                          "related_media": [],
+                          "name": "Front Bumper",
+                          "statement": "Front Bumper is repaired & repainted"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Rear Bumper",
+                          "statement": "Rear Bumper is repaired & repainted"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Dickey Door",
+                          "statement": "Dickey Door is repaired & repainted"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Front Left Door",
+                          "statement": "Front Left Door is repaired & repainted"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Front Right Door",
+                          "statement": "Front Right Door is repaired & repainted"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Rear Left Door",
+                          "statement": "Rear Left Door is repaired & repainted"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Rear Right Door",
+                          "statement": "Rear Right Door is repaired & repainted"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Left Fender",
+                          "statement": "Left Fender is repaired & repainted"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Right Fender",
+                          "statement": "Right Fender is repaired & repainted"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Left Quarter Panel",
+                          "statement": "Left Quarter Panel is repaired & repainted"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Left Running Board",
+                          "statement": "Left Running Board is repaired & repainted"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Right Running Board",
+                          "statement": "Right Running Board is repaired & repainted"
+                        }
+                      ],
+                      "name": "Repaired & Repainted",
+                      "statement": null,
+                      "issue_info_tag": "",
+                      "outcome": "Component State"
+                    }
+                  ],
+                  "bucket_summary": [
+                    "2 Components have minor dent",
+                    "12 Components are repaired & repainted",
+                    "15 Components have minor scratches"
+                  ],
+                  "name": "Body Panels",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 1,
+                  "tested_ok": [
+                    "No corrosion in the panels."
+                  ]
+                },
+                {
+                  "components": [
+                    {
+                      "issue_id": 1475,
+                      "terminating_bucket": [
+                        {
+                          "related_media": [],
+                          "name": "Left SVM Cover",
+                          "statement": "Left SVM Cover has minor scratches"
+                        }
+                      ],
+                      "name": "Minor Scratches",
+                      "statement": null,
+                      "issue_info_tag": "",
+                      "priority": "minor",
+                      "outcome": "Imperfection"
+                    }
+                  ],
+                  "bucket_summary": [
+                    "Left SVM Cover has minor scratches"
+                  ],
+                  "name": "Glasses & Mirrors",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 2,
+                  "tested_ok": [
+                    "No chipping or cracks."
+                  ]
+                },
+                {
+                  "components": [
+                    {
+                      "issue_id": 3456,
+                      "terminating_bucket": [
+                        {
+                          "related_media": [],
+                          "name": "Left Headlight",
+                          "statement": "Left Headlight has minor scratches"
+                        },
+                        {
+                          "related_media": [],
+                          "name": "Right Headlight",
+                          "statement": "Right Headlight has minor scratches"
+                        }
+                      ],
+                      "name": "Minor Scratches",
+                      "statement": null,
+                      "issue_info_tag": "",
+                      "priority": "minor",
+                      "outcome": "Imperfection"
+                    }
+                  ],
+                  "bucket_summary": [
+                    "2 Components have minor scratches"
+                  ],
+                  "name": "Standard Fitments & Features",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 3,
+                  "tested_ok": [
+                    "All electric/electronic components are functioning properly."
+                  ]
+                }
+              ],
+              "name": "Exterior",
+              "statement": "Aesthetic and functional checks. Includes body, glasses, headlights and electrical components.",
+              "position": 5,
+              "display_name": "exterior",
+              "perks": null,
+              "tyre_life": [],
+              "status": [
+                {
+                  "no_of_parts": 2,
+                  "name": "minor_dent",
+                  "priority": "minor",
+                  "type": "imperfection"
+                },
+                {
+                  "no_of_parts": 18,
+                  "name": "minor_scratches",
+                  "priority": "minor",
+                  "type": "imperfection"
+                }
+              ]
+            },
+            "interior": {
+              "summary": {
+                "total_fixed": 0,
+                "total_imperfection": 0
+              },
+              "issue_state": [],
+              "data": [
+                {
+                  "name": "Air Conditioning System",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "No leaks/damages were found in the system.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Cooling/Heating functions are working effectively.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Compressor is working properly.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                },
+                {
+                  "name": "Standard Fitments & Features",
+                  "section_data": [
+                    {
+                      "related_media": [],
+                      "statement": "All speakers and controls function properly.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "Central locking is functioning properly.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    },
+                    {
+                      "related_media": [],
+                      "statement": "All interior lights are working properly.",
+                      "more_info": null,
+                      "type": "tested_ok",
+                      "priority": null
+                    }
+                  ]
+                }
+              ],
+              "buckets": [
+                {
+                  "components": [],
+                  "bucket_summary": [],
+                  "name": "Air Conditioning System",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 1,
+                  "tested_ok": [
+                    "No leaks/damages were found in the system.",
+                    "Cooling/Heating functions are working effectively.",
+                    "Compressor is working properly."
+                  ]
+                },
+                {
+                  "components": [
+                    {
+                      "issue_id": 2765,
+                      "terminating_bucket": [
+                        {
+                          "related_media": [],
+                          "name": "Audio/Stereo Console",
+                          "statement": "Audio/Stereo Console is a aftermarket fitment"
+                        }
+                      ],
+                      "name": "Aftermarket Fitment",
+                      "statement": null,
+                      "issue_info_tag": "",
+                      "outcome": "Aftermarket"
+                    }
+                  ],
+                  "bucket_summary": [
+                    "Audio/Stereo Console is a aftermarket fitment"
+                  ],
+                  "name": "Standard Fitments & Features",
+                  "image_count": {
+                    "imperfection_image_count": 0,
+                    "fixed_image_count": 0
+                  },
+                  "position": 2,
+                  "tested_ok": [
+                    "All speakers and controls function properly.",
+                    "Central locking is functioning properly.",
+                    "All interior lights are working properly."
+                  ]
+                }
+              ],
+              "name": "Interior",
+              "statement": "Air conditioning, standard features like lights, central locking, speakers, and controls.",
+              "position": 6,
+              "display_name": "interior",
+              "perks": null,
+              "tyre_life": [],
+              "status": []
+            }
+          },
+          "battery_condition": {
+            "certificate_url": null,
+            "data": [],
+            "buckets": [
+              {
+                "components": []
+              }
+            ],
+            "name": "battery_condition",
+            "statement": "Essential details on the electric car's battery",
+            "display_name": "Battery condition"
+          },
+          "fixes_done": {
+            "data": [
+              {
+                "bucket_list": [
+                  "Front Bumper",
+                  "Rear Bumper",
+                  "Dickey Door",
+                  "Front Left Door",
+                  "Front Right Door",
+                  "Rear Left Door",
+                  "Rear Right Door",
+                  "Left Fender",
+                  "Right Fender",
+                  "Left Quarter Panel",
+                  "Left Running Board",
+                  "Right Running Board"
+                ],
+                "name": "Repaired & Repainted",
+                "statement": "Flawless makeover for a mint condition look"
+              }
+            ],
+            "name": "fixes_done",
+            "statement": ""
+          },
+          "customised_accessories": {
+            "data": [
+              "Audio/Stereo Console"
+            ],
+            "name": "customised_accessories",
+            "statement": "This car comes with additional customised features beyond original specifications."
+          },
+          "tyre_life_remaining": {
+            "summary": {
+              "total_fixed": 0,
+              "total_imperfection": 0
+            },
+            "issue_state": [],
+            "data": [
+              {
+                "name": "Tyres",
+                "section_data": [
+                  {
+                    "related_media": [],
+                    "statement": "No bulge or uneven wear.",
+                    "more_info": null,
+                    "type": "tested_ok",
+                    "priority": null
+                  }
+                ]
+              },
+              {
+                "name": "Wheels",
+                "section_data": [
+                  {
+                    "related_media": [],
+                    "statement": "No cracks. Size is ok.",
+                    "more_info": null,
+                    "type": "tested_ok",
+                    "priority": null
+                  }
+                ]
+              }
+            ],
+            "buckets": [
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Tyres",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 1,
+                "tested_ok": [
+                  "No bulge or uneven wear."
+                ]
+              },
+              {
+                "components": [],
+                "bucket_summary": [],
+                "name": "Wheels",
+                "image_count": {
+                  "imperfection_image_count": 0,
+                  "fixed_image_count": 0
+                },
+                "position": 2,
+                "tested_ok": [
+                  "No cracks. Size is ok."
+                ]
+              }
+            ],
+            "name": "Tyre Life Remaining",
+            "statement": "",
+            "position": 7,
+            "display_name": "tyre_life_remaining",
+            "perks": null,
+            "tyre_life": [
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/9900799d77a54b8994a49dba5ea45de8/raw/file.JPG",
+                "km_driven": 11000,
+                "tyre_percentage": 35.0,
+                "tyre_name": "Right Front Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/f2ba445008e645a5b92218b91ccd4e54/raw/file.JPG",
+                "km_driven": 11000,
+                "tyre_percentage": 35.0,
+                "tyre_name": "Left Front Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/97f5d631e5724fb28f57b59cac214e8e/raw/file.JPG",
+                "km_driven": 40000,
+                "tyre_percentage": 80.0,
+                "tyre_name": "Right Rear Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/39f8f8aeb32d4602b8f27b042845d037/raw/file.JPG",
+                "km_driven": 18000,
+                "tyre_percentage": 45.0,
+                "tyre_name": "Left Rear Tyre"
+              },
+              {
+                "image": "//mda.spinny.com/sp-file-system/public/2026-07-11/c312768a21df4e4c94bb01878c8dd48f/raw/file.JPG",
+                "km_driven": 5000,
+                "tyre_percentage": 25.0,
+                "tyre_name": "Spare Tyre"
+              }
+            ],
+            "status": []
+          }
+        }
+      }
+    },
+    "pdf_report": "//d308ljkq6e62o1.cloudfront.net/pdf/ZvCHqDtoT8Wp2GO4q37wMg/file.pdf",
+    "listing_status": "published",
+    "soft_unpublish": false,
+    "consumer_procurement_category": "budget",
+    "procurement_category": "budget",
+    "emi_details": null,
+    "is_user_loan_eligible": false,
+    "product_photos": {
+      "images": {
+        "exterior": [
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/e491071304eb4f3ab3a776d153c8c2ab/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:05+05:30"
+            },
+            "file_label": "LEFT FRONT CORNER VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/caa992feabf84095aebc0d22dbe3f6f4/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:05+05:30"
+            },
+            "file_label": "LEFT SIDE VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/85a887f627d44d1faa1665ee4ac19cf5/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:04+05:30"
+            },
+            "file_label": "LEFT REAR CORNER VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/107f989600c9416b9847f63371730bde/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:04+05:30"
+            },
+            "file_label": "BACK VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/fa5e6352ac66418fa832c0c17f545d52/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:04+05:30"
+            },
+            "file_label": "RIGHT REAR CORNER VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/b60bba883fc54eb6a9e8a887dfda4ae9/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:03+05:30"
+            },
+            "file_label": "RIGHT SIDE VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/22c5cb7a1f064d9ca928279d22ee0737/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:03+05:30"
+            },
+            "file_label": "RIGHT FRONT CORNER VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/f69a9e5789f845a78da19726c5adfd9f/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:02+05:30"
+            },
+            "file_label": "FRONT VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/28d8911a591b427ea94f672d75e1ee31/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:16+05:30"
+            },
+            "file_label": "FRONT WINDSHIELD VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/551282fb6e5d4018a662c6a4d8f61aa2/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:19+05:30"
+            },
+            "file_label": "BACK WINDSHIELD VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/511a33006e39446d86108a307917d069/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:09+05:30"
+            },
+            "file_label": "EXTERIOR ROOF VIEW"
+          }
+        ],
+        "interior": [
+          {
+            "thumbnail": "//assets.spinny.com/sp-file-system/public/2026-07-11/57a46ba6790a445e8a0ef5f76c4112be/raw/file.JPG",
+            "file": {
+              "uploader_name": null,
+              "file_type": ".mp4",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/d208974034cb439894dc9ac89a24198c/raw/file.mp4",
+              "upload_date": "2026-07-11T17:09:22+05:30"
+            },
+            "file_label": "DASHBOARD VIDEO"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/57a46ba6790a445e8a0ef5f76c4112be/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:17+05:30"
+            },
+            "file_label": "DASHBOARD VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/a6da49affbfe4012a2c776056c5cacbc/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:17+05:30"
+            },
+            "file_label": "MUSIC SYSTEM & AC CONTROL VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/c3fd002dc48346678e07b9bbec7f5879/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:17+05:30"
+            },
+            "file_label": "STEERING VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/b05881f51ab44874ae7555e6ffaffa9e/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:18+05:30"
+            },
+            "file_label": "CLUSTERMETER VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/3577a0649de742e2aaab8b3758e3b84b/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:18+05:30"
+            },
+            "file_label": "GEAR  KNOB VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/711a6c9c5d81490fb311353282bba305/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:06+05:30"
+            },
+            "file_label": "RIGHT SIDE FRONT DOOR CABIN VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/6a30993744004b80902f251758e24408/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:08+05:30"
+            },
+            "file_label": "RIGHT SIDE REAR DOOR CABIN VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/36e7065eafa54f0bb887231a7173e682/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:06+05:30"
+            },
+            "file_label": "RIGHT FRONT DOOR OPEN VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/743dd2bc74e04c11b20da668540f4643/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:07+05:30"
+            },
+            "file_label": "RIGHT REAR DOOR OPEN VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/1401f9f9c8b7419091fc1f5c44a8b830/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:12+05:30"
+            },
+            "file_label": "LEFT FRONT DOOR OPEN VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/9f0782e1051246c288386c7f27612f4a/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:11+05:30"
+            },
+            "file_label": "LEFT REAR DOOR OPEN VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/54533d84e2924720b804c173f86ac62b/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:18+05:30"
+            },
+            "file_label": "REAR SEAT CONDITION VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/7895b74cacdd4d2aa6ce5c041df47f80/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:10+05:30"
+            },
+            "file_label": "DICKY DOOR OPEN VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/fe9f724205fb416497cca7879f7021e1/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:10+05:30"
+            },
+            "file_label": "DICKY INSIDE VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/ae54880fd60f42508a1977e0e0f8d489/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:20+05:30"
+            },
+            "file_label": "PEDALS VIEW"
+          }
+        ],
+        "engine": [
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/fd73a734546e42feb328635a251730b8/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:14+05:30"
+            },
+            "file_label": "ENGINE & BONNET OPEN FRONT VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/b353b3db82534edcb27bb8efe9f7a185/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:15+05:30"
+            },
+            "file_label": "ENGINE LEFT SIDE VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/fbc6f5243346460fa57daf101673b2d0/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:15+05:30"
+            },
+            "file_label": "ENGINE RIGHT SIDE VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/84d19eda845848b4be88b6a1c622338d/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:15+05:30"
+            },
+            "file_label": "ENGINE LEFT SIDE HINGE & APRON VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/8d7fa09e25df41c69fbdaae0fb62adfb/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:16+05:30"
+            },
+            "file_label": "ENGINE RIGHT SIDE HINGE & APRON VIEW"
+          }
+        ],
+        "tyres": [
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/4bc4d50a8acb4d8f83fcb7b5fa209b91/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:07+05:30"
+            },
+            "file_label": "RIGHT FRONT TYRE RIM VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/e0f67bcdee394d63840621296a838ee8/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:08+05:30"
+            },
+            "file_label": "RIGHT REAR TYRE RIM VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/1abd2e3475fb462ea4d1febbc489569a/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:13+05:30"
+            },
+            "file_label": "LEFT FRONT TYRE RIM VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/1a22e28424364f30bf6991d8bb8aff18/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:12+05:30"
+            },
+            "file_label": "LEFT REAR TYRE RIM VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/9900799d77a54b8994a49dba5ea45de8/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:07+05:30"
+            },
+            "file_label": "RIGHT FRONT TYRE TREAD VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/97f5d631e5724fb28f57b59cac214e8e/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:09+05:30"
+            },
+            "file_label": "RIGHT REAR TYRE TREAD VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/f2ba445008e645a5b92218b91ccd4e54/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:13+05:30"
+            },
+            "file_label": "LEFT FRONT TYRE TREAD VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/39f8f8aeb32d4602b8f27b042845d037/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:12+05:30"
+            },
+            "file_label": "LEFT REAR TYRE TREAD VIEW"
+          },
+          {
+            "file": {
+              "uploader_name": null,
+              "file_type": ".JPG",
+              "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/c312768a21df4e4c94bb01878c8dd48f/raw/file.JPG",
+              "upload_date": "2026-07-11T17:09:11+05:30"
+            },
+            "file_label": "SPARE TYRE VIEW"
+          }
+        ],
+        "top_features": [
+          {
+            "file": {
+              "url": "https://assets.spinny.com/sp-file-system/public/2026-07-11/876a2461ce234405904985bda7ccb101/raw/file.JPG"
+            },
+            "file_label": "Integrated (in-dash) music system"
+          },
+          {
+            "file": {
+              "url": "https://assets.spinny.com/sp-file-system/public/2026-07-11/21385d7bf6644abcb0418d8c4f77a438/raw/file.JPG"
+            },
+            "file_label": "Rear defogger"
+          },
+          {
+            "file": {
+              "url": "https://assets.spinny.com/sp-file-system/public/2026-07-11/a6649eaa2c9c487083be818906749870/raw/file.JPG"
+            },
+            "file_label": "Steering mounted controls"
+          }
+        ]
+      },
+      "extra": [
+        {
+          "file": {
+            "uploader_name": null,
+            "file_type": ".JPG",
+            "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/cfa8fb38ae524b3f8bf9faa136f8051a/raw/file.JPG",
+            "upload_date": "2026-07-11T17:09:19+05:30"
+          },
+          "file_label": "CAR KEY VIEW"
+        },
+        {
+          "file": {
+            "uploader_name": null,
+            "file_type": ".JPG",
+            "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/c22fe375fd2e43c3b165aaffa9dfb1f1/raw/file.JPG",
+            "upload_date": "2026-07-11T17:09:11+05:30"
+          },
+          "file_label": "REAR UNDERBODY VIEW (TAKEN FROM REAR)"
+        },
+        {
+          "file": {
+            "uploader_name": null,
+            "file_type": ".JPG",
+            "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/57a9614fbfd7406f8188a65838738b43/raw/file.JPG",
+            "upload_date": "2026-07-11T17:09:09+05:30"
+          },
+          "file_label": "REAR RIGHT UNDERBODY VIEW"
+        },
+        {
+          "file": {
+            "uploader_name": null,
+            "file_type": ".JPG",
+            "url": "//assets.spinny.com/sp-file-system/public/2026-07-11/11ab9c154a7040c78cc340aa113d5545/raw/file.JPG",
+            "upload_date": "2026-07-11T17:09:14+05:30"
+          },
+          "file_label": "FRONT LEFT UNDERBODY VIEW"
+        }
+      ],
+      "dents": [
+        {
+          "issue_id": 3455,
+          "checkpoint_id": 50,
+          "x": 0.498154982,
+          "count": 1,
+          "y": 0.294811321,
+          "photo": {
+            "url": "https://assets.spinny.com/sp-file-system/public/2026-07-11/139151705da54678a57b6efe4baeb70c/raw/file.JPG"
+          },
+          "label": "Bonnet",
+          "type": "scratch",
+          "priority": "minor"
+        },
+        {
+          "issue_id": 3461,
+          "checkpoint_id": 635,
+          "x": 0.848708487,
+          "count": 1,
+          "y": 0.566037736,
+          "photo": {
+            "url": "https://assets.spinny.com/sp-file-system/public/2026-07-11/6cf9f16b2f064adba612710812932d4e/raw/file.JPG"
+          },
+          "label": "Rear Right Door",
+          "type": "scratch",
+          "priority": "minor"
+        },
+        {
+          "issue_id": 4359,
+          "checkpoint_id": 7178,
+          "x": 0.819188192,
+          "count": 1,
+          "y": 0.70754717,
+          "photo": {
+            "url": "https://assets.spinny.com/sp-file-system/public/2026-07-11/7cdff40cf18344c0bfe21adbfe30a2cd/raw/file.JPG"
+          },
+          "label": "Right Quarter Panel",
+          "type": "scratch",
+          "priority": "minor"
+        },
+        {
+          "issue_id": 4225,
+          "checkpoint_id": 7179,
+          "x": 0.180811808,
+          "count": 1,
+          "y": 0.70754717,
+          "photo": {
+            "url": "https://assets.spinny.com/sp-file-system/public/2026-07-11/29532a11db3640f9b9947e2515350885/raw/file.JPG"
+          },
+          "label": "Left Quarter Panel",
+          "type": "scratch",
+          "priority": "minor"
+        }
+      ],
+      "without_bg_image": {
+        "file": {
+          "moburl": "//assets.spinny.com/sp-file-system/public/2026-07-11/73afa370be074299b961b94d29dac46a/raw/file.JPG",
+          "thumburl": "//assets.spinny.com/sp-file-system/public/2026-07-11/73afa370be074299b961b94d29dac46a/raw/file.JPG",
+          "taburl": "//assets.spinny.com/sp-file-system/public/2026-07-11/73afa370be074299b961b94d29dac46a/raw/file.JPG",
+          "absurl": "//assets.spinny.com/sp-file-system/public/2026-07-11/73afa370be074299b961b94d29dac46a/raw/file.JPG"
+        },
+        "file_label": "Thumbnail Without Background"
+      },
+      "thumbnails": [
+        {
+          "file": {
+            "moburl": "//assets.spinny.com/sp-file-system/public/2026-07-11/38ac8d67b0424844b2fd4ed065d6f7ed/raw/file.JPG",
+            "thumburl": "//assets.spinny.com/sp-file-system/public/2026-07-11/38ac8d67b0424844b2fd4ed065d6f7ed/raw/file.JPG",
+            "taburl": "//assets.spinny.com/sp-file-system/public/2026-07-11/38ac8d67b0424844b2fd4ed065d6f7ed/raw/file.JPG",
+            "absurl": "//assets.spinny.com/sp-file-system/public/2026-07-11/38ac8d67b0424844b2fd4ed065d6f7ed/raw/file.JPG"
+          },
+          "file_label": "Right Front Corner Without Background"
+        }
+      ]
+    },
+    "fuel_type": "petrol",
+    "transmission": "manual",
+    "last_service_date": "2026-07-06T10:42:31.068685+00:00",
+    "next_service_date": "2027-07-06T10:42:31.068685+00:00",
+    "oem_km_interval": 10000,
+    "next_service_date_description": "Next service due after 12 months or 10,000 km",
+    "next_service_date_sub_description": "whichever comes first post delivery",
+    "permanent_url": "/buy-used-cars/noida/hyundai/elite-i20/sportz-12-sector-4-2017/30459072/",
+    "finance": {
+      "best": {
+        "details": {
+          "loan_amount": {
+            "min": 0,
+            "max": 330400,
+            "best": 247800.0
+          },
+          "roi": 11.5,
+          "old_roi": 13.0,
+          "loan_age": {
+            "min": 1,
+            "max": 5.5,
+            "best": 3
+          },
+          "emi": {
+            "best": "6,778"
+          },
+          "old_emi": {
+            "best": "7,033"
+          },
+          "max_ltv": 80,
+          "offer_applicable": true,
+          "offer_id": "36",
+          "savings": 16830.0,
+          "financeable": 1
+        }
+      }
+    },
+    "insurance_type": "Comprehensive",
+    "insurance_validity_month": "Feb",
+    "insurance_validity_year": 2027,
+    "inspection_report_v3": {
+      "part_verdict": "1573 parts evaluated by 5 automotive experts",
+      "service_due": "Next service due todo",
+      "highlights": [
+        {
+          "icon": "",
+          "text": "Meter not tampered"
+        },
+        {
+          "icon": "",
+          "text": "Non-flooded"
+        },
+        {
+          "icon": "",
+          "text": "Core structure intact"
+        }
+      ],
+      "category_list": [
+        {
+          "name": "Core systems",
+          "cat_id": 2,
+          "icon": "https://spn-sta.spinny.com/spinny-web/static-images/inspection-report-v3/Core_1.svg",
+          "rating": 9.9,
+          "rating_verdict": "Excellent",
+          "rating_color": "d_green",
+          "n1_string": "Engine, transmission & chassis",
+          "statement": null,
+          "price_statement": null
+        },
+        {
+          "name": "Supporting systems",
+          "cat_id": 1,
+          "icon": "https://spn-sta.spinny.com/spinny-web/static-images/inspection-report-v3/Supporting_1.svg",
+          "rating": 9.8,
+          "rating_verdict": "Excellent",
+          "rating_color": "d_green",
+          "n1_string": "Fuel supply, ignition & other systems",
+          "statement": null,
+          "price_statement": null
+        },
+        {
+          "name": "Interiors & AC",
+          "cat_id": 4,
+          "icon": "https://spn-sta.spinny.com/spinny-web/static-images/inspection-report-v3/Interior_1.svg",
+          "rating": 8.9,
+          "rating_verdict": "Good",
+          "rating_color": "green",
+          "n1_string": "Seats, AC, audio & other features",
+          "statement": null,
+          "price_statement": null
+        },
+        {
+          "name": "Exteriors & lights",
+          "cat_id": 3,
+          "icon": "https://spn-sta.spinny.com/spinny-web/static-images/inspection-report-v3/Exterior_1.svg",
+          "rating": 7.8,
+          "rating_verdict": "Fair",
+          "rating_color": "lilac",
+          "n1_string": "Panels, glasses, lights & fixtures",
+          "statement": "Imperfections on glasses & mirrors but no impact on visibility",
+          "price_statement": "Comes with \u20b911,000 lower price tag because of it"
+        },
+        {
+          "name": "Wear & tear parts",
+          "cat_id": 5,
+          "icon": "https://spn-sta.spinny.com/spinny-web/static-images/inspection-report-v3/Limited_life_1.svg",
+          "rating": 8.5,
+          "rating_verdict": "Good",
+          "rating_color": "green",
+          "n1_string": "Tyres, clutch, brakes & more",
+          "statement": null,
+          "price_statement": null
+        }
+      ]
+    },
+    "car_geo_data": null,
+    "is_new_inspection_report": true,
+    "available_on": "2026-07-20 15:07:45",
+    "custody_marked": true,
+    "is_delayed": null,
+    "is_instant_td_avail": null,
+    "perks_v2": [
+      {
+        "heading": "Free upgrades worth \u20b914,501",
+        "icon": "third_party_upgrades",
+        "tag": "third_party_upgrades",
+        "subheading": "Includes Mats, Audio console & Seat cover \u2014 pre-installed",
+        "icon_image": "https://spn-sta.spinny.com/spinny-web/static-images/lead-highlight/icons/third_party_upgrade.svg",
+        "gallery_icon": "https://spn-sta.spinny.com/spinny-web/static-images/lead-highlight/icons/third_party_upgrade.svg",
+        "strength": "weak",
+        "priority": 1,
+        "short_title": "Free upgrades"
+      },
+      {
+        "heading": "Delhi NCR's most affordable car under 30K km",
+        "icon": "most_affordable",
+        "tag": "superlative",
+        "subheading": "Across 30 cars in the city",
+        "icon_image": "https://mda.spinny.com/sp-file-system/public/2024-07-03/da85f75984bd438ab5355208b52dc712/raw/Frame 22354.svg.svg",
+        "gallery_icon": "https://mda.spinny.com/sp-file-system/public/2024-06-11/cfc6989669864c04a3b2768984827a07/raw/great_deal.svg.svg",
+        "strength": "strong",
+        "priority": 40,
+        "short_title": "City's most affordable"
+      },
+      {
+        "heading": "Less driven per year",
+        "icon": "driven_less",
+        "tag": "inspection",
+        "subheading": "Usage lower than 5,000km per year",
+        "icon_image": "https://mda.spinny.com/sp-file-system/public/2024-07-03/d2208bf5c9bb4c59bc36ba72a06154f2/raw/Frame 22366.svg.svg",
+        "gallery_icon": "https://spn-sta.spinny.com/spinny-web/static-images/gallery/driven_less.svg",
+        "strength": "weak",
+        "priority": 170,
+        "short_title": "Less driven per year"
+      }
+    ],
+    "amc_details": null,
+    "user_profile_data": null,
+    "spinny_budget_city": true
+  },
+  "is_success": true,
+  "status_code": 200
+}

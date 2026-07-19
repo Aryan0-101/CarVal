@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Precision Valuation | Predict Vehicle Value</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-error": "#690005",
+            "surface-container": "#171f33",
+            "surface": "#0b1326",
+            "on-background": "#dbe2fd",
+            "on-tertiary": "#4f2500",
+            "on-primary-fixed": "#131449",
+            "error-container": "#93000a",
+            "on-surface": "#dbe2fd",
+            "outline": "#918f9a",
+            "surface-glass": "rgba(11, 19, 38, 0.7)",
+            "inverse-on-surface": "#283044",
+            "inverse-surface": "#dbe2fd",
+            "surface-container-low": "#131b2e",
+            "on-primary-container": "#4b4d83",
+            "surface-tint": "#c0c1ff",
+            "tertiary": "#ffdcc5",
+            "secondary": "#bcc7de",
+            "tertiary-fixed": "#ffdcc5",
+            "primary": "#e1dfff",
+            "glow-primary": "rgba(192, 193, 255, 0.3)",
+            "primary-fixed": "#e1e0ff",
+            "on-primary": "#292b5e",
+            "outline-variant": "#46464f",
+            "surface-container-lowest": "#060d20",
+            "tertiary-container": "#ffb783",
+            "primary-fixed-dim": "#c0c1ff",
+            "error": "#ffb4ab",
+            "background": "#0b1326",
+            "surface-container-highest": "#2d3449",
+            "secondary-fixed": "#d8e3fa",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#404176",
+            "on-surface-variant": "#c7c5d0",
+            "on-tertiary-fixed-variant": "#6b3a11",
+            "surface-dim": "#0b1326",
+            "on-secondary-fixed": "#111c2d",
+            "surface-bright": "#31394e",
+            "surface-container-high": "#222a3e",
+            "on-tertiary-container": "#79461c",
+            "secondary-container": "#3c475a",
+            "tertiary-fixed-dim": "#ffb783",
+            "on-secondary-container": "#aab5cc",
+            "secondary-fixed-dim": "#bcc7de",
+            "inverse-primary": "#585990",
+            "on-secondary-fixed-variant": "#3c475a",
+            "surface-variant": "#2d3449",
+            "border-low-opacity": "rgba(199, 196, 215, 0.1)",
+            "on-tertiary-fixed": "#301400",
+            "primary-container": "#c0c1ff",
+            "on-secondary": "#263143"
+          },
+          fontFamily: {
+            "display-lg": ["Inter", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "headline-lg": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "headline-md": ["Inter", "sans-serif"]
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="text-white min-h-screen relative">
+  <!-- Video Animation Canvas -->
+  <canvas id="video-canvas"></canvas>
+
+  <!-- TopNavBar -->
+  <header class="bg-black/50 backdrop-blur-2xl border-b border-white/10 fixed top-0 w-full z-50 transition-all duration-300 ease-in-out">
+    <div class="flex justify-between items-center px-4 md:px-8 h-16 w-full mx-auto max-w-[1440px]">
+      <!-- Brand -->
+      <div class="font-headline-md text-xl md:text-2xl font-bold tracking-tight text-white cursor-pointer">
+        Precision Valuation
+      </div>
+      <!-- Navigation Links (Desktop) -->
+      <nav class="hidden md:flex items-center gap-8 h-full">
+        <a class="text-sm text-[#0A84FF] font-medium transition-colors duration-150 cursor-pointer">Predict</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="scroll-container">
+    <div class="fixed top-[45vh] left-0 w-full text-center pointer-events-none transition-opacity duration-500" id="hero-text">
+      <h1 class="font-display-lg text-4xl md:text-5xl text-white mb-2 tracking-tight">Discover True Value</h1>
+      <p class="font-body-lg text-lg text-white/70 max-w-2xl mx-auto tracking-tight">Scroll to begin your comprehensive vehicle assessment.</p>
+    </div>
+
+    <!-- Main Content Canvas -->
+    <div class="content-layer">
+      <main class="max-w-[1024px] mx-auto px-4 md:px-8 py-16 pb-[100px]">
+        <!-- Page Header -->
+        <div class="max-w-3xl mx-auto mb-16 enter-stage opacity-0 transform translate-y-8">
+          <h1 class="font-headline-lg text-3xl text-white mb-2 text-center tracking-tight">Predict Vehicle Value</h1>
+          <p class="font-body-lg text-lg text-white/70 text-center tracking-tight">Enter the details below to get an accurate market valuation based on current professional benchmarks.</p>
+        </div>
+
+        <!-- Form Container -->
+        <div class="max-w-3xl mx-auto glass-panel rounded-2xl p-6 md:p-8 enter-stage opacity-0 transform translate-y-8 delay-100">
+          <form class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6" id="predict-form">
+            <!-- Brand/Make -->
+            <div class="flex flex-col gap-1">
+              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="make">Brand / Make</label>
+              <select class="form-input" id="make" name="make" required>
+                <option disabled selected value="">Select Brand</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Maruti Suzuki">Maruti Suzuki</option>
+                <option value="Honda">Honda</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            
+            <!-- Year -->
+            <div class="flex flex-col gap-1">
+              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="year">Year of Manufacture</label>
+              <select class="form-input" id="year" name="year" required>
+                <option disabled selected value="">Select Year</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+              </select>
+            </div>
+
+            <!-- Mileage -->
+            <div class="flex flex-col gap-1">
+              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="mileage">Mileage (KM)</label>
+              <input class="form-input" id="mileage" name="mileage" placeholder="e.g. 50000" type="number" required min="0"/>
+            </div>
+
+            <!-- Owners -->
+            <div class="flex flex-col gap-1">
+              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="no_of_owners">Number of Owners</label>
+              <input class="form-input" id="no_of_owners" name="no_of_owners" placeholder="e.g. 1" type="number" required min="1" max="5"/>
+            </div>
+
+            <!-- Fuel Type -->
+            <div class="flex flex-col gap-1">
+              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="fuel_type">Fuel Type</label>
+              <select class="form-input" id="fuel_type" name="fuel_type" required>
+                <option disabled selected value="">Select Fuel</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+              </select>
+            </div>
+            
+            <!-- Inspection Score -->
+            <div class="flex flex-col gap-1">
+              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="avg_inspection_score">Avg Inspection Score (0-10)</label>
+              <input class="form-input" id="avg_inspection_score" name="avg_inspection_score" placeholder="9.0" step="0.1" type="number" required min="0" max="10"/>
+            </div>
+
+            <!-- Action Row -->
+            <div class="md:col-span-2 pt-4 flex flex-col md:flex-row items-center justify-between gap-6">
+              <p class="text-[12px] text-white/50 tracking-tight">
+                * All fields are required for maximum accuracy.
+              </p>
+              <button class="w-full md:w-auto bg-[#0A84FF] text-white font-medium px-8 py-3 rounded-xl submit-btn transition-transform duration-150 ease-out active:scale-[0.97]" type="submit">
+                Calculate Valuation
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Results Container (Hidden initially) -->
+        <div id="result-display-container" class="max-w-3xl mx-auto glass-panel rounded-2xl p-6 md:p-8 mt-8 hidden">
+            <h3 class="text-xl font-medium mb-6">Valuation Report</h3>
+            <div id="result-display" class="w-full">
+            </div>
+        </div>
+
+        <!-- Visual Footer Element -->
+        <div class="max-w-3xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 enter-stage opacity-0 transform translate-y-8 delay-200">
+          <div class="p-4 glass-panel rounded-2xl flex items-start gap-4">
+            <span class="material-symbols-outlined text-[#0A84FF]">verified</span>
+            <div>
+              <h4 class="text-[13px] font-semibold text-white mb-1 tracking-tight">Live Market Data</h4>
+              <p class="text-[13px] text-white/60 tracking-tight">Prices aggregated from 500+ dealer portals daily.</p>
+            </div>
+          </div>
+          <div class="p-4 glass-panel rounded-2xl flex items-start gap-4">
+            <span class="material-symbols-outlined text-[#0A84FF]">analytics</span>
+            <div>
+              <h4 class="text-[13px] font-semibold text-white mb-1 tracking-tight">Precision Logic</h4>
+              <p class="text-[13px] text-white/60 tracking-tight">98% accuracy on vehicles less than 10 years old.</p>
+            </div>
+          </div>
+          <div class="p-4 glass-panel rounded-2xl flex items-start gap-4">
+            <span class="material-symbols-outlined text-[#0A84FF]">security</span>
+            <div>
+              <h4 class="text-[13px] font-semibold text-white mb-1 tracking-tight">Privacy First</h4>
+              <p class="text-[13px] text-white/60 tracking-tight">No personal data required for standard search.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

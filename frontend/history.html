@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Analytics & History | Precision Valuation</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#0b1326",
+          },
+          fontFamily: {
+            "display-lg": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    /* Table specific styles for Apple aesthetic */
+    .history-table th {
+        font-weight: 500;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+    }
+    .history-table td {
+        padding: 1.25rem 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.875rem;
+    }
+    .history-table tr:last-child td {
+        border-bottom: none;
+    }
+    .history-table tbody tr {
+        transition: background-color 200ms ease;
+    }
+    .history-table tbody tr:hover {
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen relative">
+  <!-- TopNavBar -->
+  <header class="bg-black/50 backdrop-blur-2xl border-b border-white/10 fixed top-0 w-full z-50 transition-all duration-300 ease-in-out">
+    <div class="flex justify-between items-center px-4 md:px-8 h-16 w-full mx-auto max-w-[1440px]">
+      <div class="font-headline-md text-xl md:text-2xl font-bold tracking-tight text-white cursor-pointer" onclick="window.location.href='/'">
+        Precision Valuation
+      </div>
+      <nav class="hidden md:flex items-center gap-8 h-full">
+        <a href="/" class="text-sm text-white/70 hover:text-white font-medium transition-colors duration-150 cursor-pointer">Predict</a>
+        <a href="/history.html" class="text-sm text-[#0A84FF] font-medium transition-colors duration-150 cursor-pointer">History & Analytics</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="pt-32 pb-16 px-4 md:px-8 max-w-[1024px] mx-auto">
+    <div class="mb-12 enter-stage opacity-0 transform translate-y-8">
+      <h1 class="font-display-lg text-3xl md:text-4xl text-white mb-2 tracking-tight">Recent Valuations</h1>
+      <p class="font-body-lg text-white/60 tracking-tight">A history of predictions made by the engine.</p>
+    </div>
+
+    <!-- History Container -->
+    <div class="glass-panel rounded-2xl overflow-hidden enter-stage opacity-0 transform translate-y-8 delay-100">
+      <div class="overflow-x-auto">
+        <table class="w-full history-table whitespace-nowrap" id="history-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date & Time</th>
+              <th>Predicted Value</th>
+            </tr>
+          </thead>
+          <tbody id="history-body">
+            <tr>
+              <td colspan="3" class="text-center py-8 text-white/50">
+                <span class="flex items-center justify-center gap-2">
+                  <span class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span> 
+                  Loading history...
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const historyBody = document.getElementById('history-body');
+        
+        try {
+            const response = await fetch('http://localhost:8000/history');
+            if (!response.ok) throw new Error('Failed to fetch');
+            
+            const data = await response.json();
+            
+            const formatCI = val => new Intl.NumberFormat('en-IN', {
+                style: 'currency', currency: 'INR', maximumFractionDigits: 0
+            }).format(val);
+
+            if (data.length === 0) {
+                historyBody.innerHTML = '<tr><td colspan="3" class="text-center py-8 text-white/50">No predictions recorded yet.</td></tr>';
+                return;
+            }
+
+            historyBody.innerHTML = data.map(row => {
+                const date = new Date(row.timestamp);
+                const formattedDate = new Intl.DateTimeFormat('en-US', { 
+                    month: 'short', day: 'numeric', year: 'numeric',
+                    hour: 'numeric', minute: '2-digit'
+                }).format(date);
+                
+                return `
+                    <tr>
+                        <td class="text-white/40">#${row.id.toString().padStart(4, '0')}</td>
+                        <td>${formattedDate}</td>
+                        <td class="font-medium text-white">${formatCI(row.prediction)}</td>
+                    </tr>
+                `;
+            }).join('');
+
+        } catch (err) {
+            historyBody.innerHTML = '<tr><td colspan="3" class="text-center py-8 text-[#ff453a]/80">Could not connect to history service.</td></tr>';
+        }
+    });
+  </script>
+</body>
+</html>

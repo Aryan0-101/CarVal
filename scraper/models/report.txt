@@ -1,0 +1,7 @@
+# Model Benchmarks
+RandomForest - MAE: 173,794.58, RMSE: 236,360.65, R2: 0.7507
+XGBoost - MAE: 207,676.67, RMSE: 313,792.89, R2: 0.5606
+LightGBM - MAE: 298,568.96, RMSE: 402,396.73, R2: 0.2774
+CatBoost - MAE: 163,474.31, RMSE: 226,363.42, R2: 0.7713
+
+Best model: CatBoost (R2: 0.7713)
