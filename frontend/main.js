@@ -1,8 +1,64 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // 1. Fetch Metadata for dropdowns
+    let hierarchy = {};
+    try {
+        const metaResp = await fetch('/api/metadata');
+        if (metaResp.ok) {
+            const data = await metaResp.json();
+            hierarchy = data.hierarchy;
+            
+            // Populate Make
+            const makeSelect = document.getElementById('make');
+            makeSelect.innerHTML = '<option disabled selected value="">Select Brand</option>';
+            Object.keys(hierarchy).sort().forEach(make => {
+                const opt = document.createElement('option');
+                opt.value = make;
+                opt.textContent = make;
+                makeSelect.appendChild(opt);
+            });
+            
+            // Handle Make change
+            makeSelect.addEventListener('change', (e) => {
+                const selectedMake = e.target.value;
+                const models = hierarchy[selectedMake];
+                const variantSelect = document.getElementById('model_variant');
+                
+                variantSelect.innerHTML = '<option disabled selected value="">Select Model & Variant</option>';
+                variantSelect.disabled = false;
+                
+                Object.keys(models).sort().forEach(model => {
+                    const group = document.createElement('optgroup');
+                    group.label = model;
+                    
+                    models[model].forEach(variant => {
+                        const opt = document.createElement('option');
+                        opt.value = `${model}|${variant}`;
+                        opt.textContent = `${model} ${variant}`;
+                        group.appendChild(opt);
+                    });
+                    
+                    variantSelect.appendChild(group);
+                });
+            });
+            
+            // Populate City
+            const citySelect = document.getElementById('city');
+            citySelect.innerHTML = '<option disabled selected value="">Select City</option>';
+            data.cities.forEach(city => {
+                const opt = document.createElement('option');
+                opt.value = city;
+                opt.textContent = city;
+                citySelect.appendChild(opt);
+            });
+        }
+    } catch (e) {
+        console.error("Failed to fetch metadata:", e);
+    }
+
     // ---- Frame Animation Logic ----
     const canvas = document.getElementById('video-canvas');
     const context = canvas.getContext('2d');
-    const frameCount = 130;
+    const frameCount = 201;
     
     // Preload images
     const frames = [];
@@ -11,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     for (let i = 1; i <= frameCount; i++) {
         const img = new Image();
-        // Pad with zeros: 001 to 130
+        // Pad with zeros: 001 to 201
         const frameNum = i.toString().padStart(3, '0');
         img.src = `/frames/ezgif-frame-${frameNum}.png`;
         img.onload = () => {
@@ -37,15 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateImage = (scrollY) => {
         if (!initialized || frames.length === 0) return;
         
-        // The scroll container is 300vh, content starts at 100vh.
-        // We'll map the scrollY from 0 to 100vh to frames 0 to 129.
-        const maxScroll = window.innerHeight;
+        // Map the scrollY across the ENTIRE scrollable height of the page
+        const maxScroll = Math.max(document.body.scrollHeight - window.innerHeight, 1);
         let progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
         
-        // Fade out hero text
+        // Fade out hero text quickly in the first 20% of the scroll
         const heroText = document.getElementById('hero-text');
         if (heroText) {
-            heroText.style.opacity = 1 - (progress * 2);
+            heroText.style.opacity = Math.max(1 - (progress * 5), 0);
         }
 
         const frameIndex = Math.min(
@@ -122,6 +177,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultDisplay = document.getElementById('result-display');
     const submitBtn = form.querySelector('.submit-btn');
 
+    // Make sliders interactive by filling the track
+    document.querySelectorAll('input[type="range"]').forEach(slider => {
+        const updateSlider = (el) => {
+            const val = el.value;
+            const percentage = (val / 10) * 100;
+            // Apple style blue track fill
+            el.style.background = `linear-gradient(to right, #0A84FF 0%, #0A84FF ${percentage}%, rgba(255, 255, 255, 0.1) ${percentage}%, rgba(255, 255, 255, 0.1) 100%)`;
+            
+            // Update textual label
+            let labelText = "Average";
+            if (val >= 9) labelText = "Like New";
+            else if (val >= 7) labelText = "Good";
+            else if (val >= 4) labelText = "Average";
+            else labelText = "Needs Repair";
+            
+            const textElement = el.parentElement.querySelector('.condition-text');
+            if (textElement) textElement.innerText = labelText;
+        };
+        
+        // Initial call
+        updateSlider(slider);
+        
+        slider.addEventListener('input', (e) => {
+            updateSlider(e.target);
+            const valDisplay = document.getElementById(`val-${e.target.name}`);
+            if (valDisplay) valDisplay.innerText = e.target.value;
+        });
+    });
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -132,26 +216,33 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.style.opacity = '0.8';
         
         const formData = new FormData(form);
-        const avgScore = parseFloat(formData.get('avg_inspection_score'));
         
+        const modelVariantRaw = formData.get('model_variant');
+        const [modelStr, variantStr] = modelVariantRaw ? modelVariantRaw.split('|') : ["Unknown", "Standard"];
+
         const features = {
             make: formData.get('make'),
-            model: "Unknown", 
+            model: modelStr, 
+            variant: variantStr,
+            city: formData.get('city'),
             year: parseInt(formData.get('year')),
             mileage: parseInt(formData.get('mileage')),
             fuel_type: formData.get('fuel_type'),
             transmission: "Manual",
             body_type: "Hatchback",
             no_of_owners: parseInt(formData.get('no_of_owners')),
-            engine_transmission_chassis: avgScore,
-            fuel_ignition_other: avgScore,
-            interiors_ac: avgScore,
-            exteriors_lights: avgScore,
-            tyres_clutch_brakes: avgScore
+            engine_transmission_chassis: parseFloat(formData.get('engine')),
+            fuel_ignition_other: parseFloat(formData.get('fuel')),
+            interiors_ac: parseFloat(formData.get('interiors')),
+            exteriors_lights: parseFloat(formData.get('exteriors')),
+            tyres_clutch_brakes: parseFloat(formData.get('tyres')),
+            meter_not_tampered: formData.get('meter_not_tampered') ? 1 : 0,
+            non_flooded: formData.get('non_flooded') ? 1 : 0,
+            core_structure_intact: formData.get('core_structure_intact') ? 1 : 0
         };
 
         try {
-            const response = await fetch('http://localhost:8000/predict', {
+            const response = await fetch('/api/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -177,12 +268,22 @@ document.addEventListener('DOMContentLoaded', () => {
             let featuresHTML = '';
             if (topFeatures.length > 0) {
                 featuresHTML = '<div class="mt-4 text-sm text-left bg-white/5 p-4 rounded-xl border border-white/10">';
-                featuresHTML += '<div class="font-medium mb-3 text-white/60 text-xs uppercase tracking-wider">Top Pricing Factors</div>';
-                featuresHTML += '<div class="flex flex-col gap-2">';
+                featuresHTML += '<div class="font-medium mb-3 text-white/60 text-xs uppercase tracking-wider">Factors considered in this estimate</div>';
+                featuresHTML += '<div class="flex flex-col gap-3">';
                 for (const [feat, val] of topFeatures) {
-                    const impact = val > 0 ? `<span class="text-[#32d74b] font-medium">+${formatCI(val)}</span>` : `<span class="text-[#ff453a] font-medium">${formatCI(val)}</span>`;
+                    const percentage = (val * 100).toFixed(1);
                     const cleanFeat = feat.replace('num__', '').replace('cat__', '').replace('remainder__', '').replace(/_/g, ' ');
-                    featuresHTML += `<div class="flex justify-between capitalize text-white/90"><span>${cleanFeat}</span> ${impact}</div>`;
+                    featuresHTML += `
+                        <div class="flex flex-col gap-1">
+                            <div class="flex justify-between capitalize text-white/90 text-xs">
+                                <span>${cleanFeat}</span>
+                                <span class="text-[#0A84FF] font-medium">${percentage}% impact</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-1.5">
+                                <div class="bg-[#0A84FF] h-1.5 rounded-full" style="width: ${percentage}%"></div>
+                            </div>
+                        </div>
+                    `;
                 }
                 featuresHTML += '</div></div>';
             }
@@ -196,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="text-white/60 uppercase tracking-wider text-xs font-semibold mb-2">Estimated Market Value</div>
                     <div class="text-5xl font-bold text-white tracking-tight mb-2">${formattedPrice}</div>
                     <p class="text-white/50 text-sm">
-                        90% Confidence Interval: ${formatCI(data.confidence_interval[0])} - ${formatCI(data.confidence_interval[1])}
+                        Estimated Market Range: ${formatCI(data.confidence_interval[0])} - ${formatCI(data.confidence_interval[1])}
                     </p>
                     ${featuresHTML}
                 </div>

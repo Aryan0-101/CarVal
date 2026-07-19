@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Precision Valuation | Model Evaluation</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#0b1326",
+          },
+          fontFamily: {
+            "display-lg": ["Inter", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "headline-lg": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "headline-md": ["Inter", "sans-serif"]
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="text-white min-h-screen relative overflow-x-hidden bg-background">
+  <!-- TopNavBar -->
+  <header class="bg-black/50 backdrop-blur-2xl border-b border-white/10 fixed top-0 w-full z-50 transition-all duration-300 ease-in-out">
+    <div class="flex justify-between items-center px-4 md:px-8 h-16 w-full mx-auto max-w-[1440px]">
+      <div class="font-headline-md text-xl md:text-2xl font-bold tracking-tight text-white cursor-pointer" onclick="window.location.href='/'">
+        Precision Valuation
+      </div>
+      <nav class="hidden md:flex items-center gap-8 h-full">
+        <a href="/" class="text-sm text-white/70 hover:text-white font-medium transition-colors duration-150 cursor-pointer">Predict</a>
+        <a href="/evaluation.html" class="text-sm text-[#0A84FF] font-medium transition-colors duration-150 cursor-pointer">Model Evaluation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-[1024px] mx-auto px-4 md:px-8 pt-32 pb-[100px]">
+      <div class="mb-12 border-b border-white/10 pb-8 enter-stage">
+        <h1 class="text-4xl font-bold tracking-tight text-white mb-3">Model Evaluation Dashboard</h1>
+        <p class="text-lg text-white/60 max-w-2xl">Transparency is key to trust. Here are the exact empirical metrics measured on a held-out test set for our valuation engine.</p>
+      </div>
+
+      <div id="loading" class="text-white/60 py-10 flex items-center gap-4 enter-stage delay-100">
+         <span class="w-5 h-5 border-2 border-white/50 border-t-white rounded-full animate-spin"></span> Fetching live model metrics...
+      </div>
+
+      <div id="metrics-container" class="hidden flex flex-col gap-8 enter-stage delay-100">
+        <!-- Main Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="stats-grid">
+            <!-- Populated by JS -->
+        </div>
+        
+        <!-- Raw Report -->
+        <div class="glass-panel rounded-2xl p-8 border border-white/10 mt-8 relative overflow-hidden">
+            <div class="absolute -top-32 -right-32 w-64 h-64 bg-purple-500 rounded-full blur-[100px] opacity-10 pointer-events-none"></div>
+            <h3 class="text-xl font-semibold mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-purple-400">terminal</span> Raw Test Set Log</h3>
+            <pre id="raw-log" class="bg-black/50 p-6 rounded-xl overflow-x-auto text-xs md:text-sm text-white/80 border border-white/5 font-mono leading-relaxed"></pre>
+        </div>
+      </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const resp = await fetch('/api/evaluation_metrics');
+            if (resp.ok) {
+                const data = await resp.json();
+                const report = data.report_text;
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('metrics-container').classList.remove('hidden');
+                document.getElementById('raw-log').textContent = report || "No report available.";
+                
+                // Parse Best Model (e.g. Best model: XGBoost (R2: 0.9009))
+                // And we want the line for the best model to extract MAE, RMSE, Coverage.
+                let bestModelMatch = report.match(/Best model: (\w+)/);
+                let bestModel = bestModelMatch ? bestModelMatch[1] : null;
+                
+                if (bestModel) {
+                    const lines = report.split('\n');
+                    const bestLine = lines.find(l => l.startsWith(bestModel) && l.includes('MAE'));
+                    if (bestLine) {
+                        // Extract metrics: XGBoost - MAE: 65,017.90, RMSE: 121,360.11, R2: 0.9009, Coverage: 90.50%, Avg Width: 345,000.00
+                        const mae = bestLine.match(/MAE:\s*([0-9.,]+)/)?.[1];
+                        const r2 = bestLine.match(/R2:\s*([0-9.]+)/)?.[1];
+                        const coverage = bestLine.match(/Coverage:\s*([0-9.,%]+)/)?.[1] || "N/A";
+                        const width = bestLine.match(/Avg Width:\s*([0-9.,]+)/)?.[1] || "N/A";
+                        
+                        const grid = document.getElementById('stats-grid');
+                        grid.innerHTML = `
+                            <div class="glass-panel p-6 rounded-2xl flex flex-col gap-2">
+                                <span class="text-xs uppercase tracking-widest text-white/50 font-medium">Model Architecture</span>
+                                <span class="text-3xl font-bold text-white tracking-tight">${bestModel}</span>
+                            </div>
+                            <div class="glass-panel p-6 rounded-2xl flex flex-col gap-2 relative overflow-hidden">
+                                <div class="absolute inset-0 bg-green-500/5"></div>
+                                <span class="text-xs uppercase tracking-widest text-white/50 font-medium z-10">R² Accuracy Score</span>
+                                <span class="text-3xl font-bold text-[#32d74b] tracking-tight z-10">${r2}</span>
+                            </div>
+                            <div class="glass-panel p-6 rounded-2xl flex flex-col gap-2">
+                                <span class="text-xs uppercase tracking-widest text-white/50 font-medium">Empirical Coverage</span>
+                                <span class="text-3xl font-bold text-[#0A84FF] tracking-tight">${coverage}</span>
+                            </div>
+                            <div class="glass-panel p-6 rounded-2xl flex flex-col gap-2">
+                                <span class="text-xs uppercase tracking-widest text-white/50 font-medium">Mean Absolute Error</span>
+                                <span class="text-3xl font-bold text-white tracking-tight">₹${mae}</span>
+                            </div>
+                        `;
+                    }
+                }
+                
+            }
+        } catch (e) {
+            document.getElementById('loading').innerHTML = '<span class="text-red-400">Failed to load metrics. Is the backend running?</span>';
+        }
+    });
+  </script>
+</body>
+</html>

@@ -26,6 +26,11 @@ class VehicleRecord(BaseModel):
     exteriors_lights: float = Field(5.0)
     tyres_clutch_brakes: float = Field(5.0)
 
+    # Trust & History booleans (encoded as int 1/0 for easy model ingestion)
+    meter_not_tampered: int = Field(1, ge=0, le=1)
+    non_flooded: int = Field(1, ge=0, le=1)
+    core_structure_intact: int = Field(1, ge=0, le=1)
+
     @model_validator(mode='before')
     @classmethod
     def populate_year(cls, data):
@@ -35,24 +40,49 @@ class VehicleRecord(BaseModel):
                 data['year'] = data['make_year']
         return data
 
-    @field_validator('make', 'fuel_type', 'transmission', 'body_type', mode='before')
+    @field_validator('make', 'model_name', 'variant', mode='before')
     @classmethod
     def normalize_string(cls, v):
         if not isinstance(v, str):
             return "Unknown"
         return v.strip().title()
 
-    @field_validator('fuel_type')
+    @field_validator('city', mode='before')
+    @classmethod
+    def normalize_city(cls, v):
+        if not isinstance(v, str): return "Unknown"
+        v = v.strip().lower()
+        if "delhi" in v: return "Delhi-NCR"
+        return v.title()
+
+    @field_validator('no_of_owners', mode='before')
+    @classmethod
+    def normalize_owners(cls, v):
+        if isinstance(v, int): return v
+        if isinstance(v, str):
+            v = v.lower().strip()
+            if '1' in v or 'first' in v: return 1
+            if '2' in v or 'second' in v: return 2
+            if '3' in v or 'third' in v: return 3
+            if '4' in v or 'fourth' in v: return 4
+            return int(''.join(filter(str.isdigit, v)) or 1)
+        return 1
+
+    @field_validator('fuel_type', mode='before')
     @classmethod
     def validate_fuel(cls, v):
-        allowed = {"Petrol", "Diesel", "Cng", "Electric"}
-        return v if v in allowed else "Other"
+        if not isinstance(v, str): return "Other"
+        v = v.strip().lower()
+        allowed = {"petrol", "diesel", "cng", "electric"}
+        return v.title() if v in allowed else "Other"
         
-    @field_validator('transmission')
+    @field_validator('transmission', mode='before')
     @classmethod
     def validate_transmission(cls, v):
-        allowed = {"Manual", "Automatic"}
-        return v if v in allowed else "Manual"
+        if not isinstance(v, str): return "Manual"
+        v = v.strip().lower()
+        allowed = {"manual", "automatic"}
+        return v.title() if v in allowed else "Manual"
 
 # The API Request matches exactly the required inference subset
 class PredictRequest(VehicleRecord):

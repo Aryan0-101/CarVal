@@ -112,7 +112,7 @@ class SpinnyScraper:
                 
                 # Robust pagination: scroll until height doesn't change
                 last_height = await page.evaluate("document.body.scrollHeight")
-                max_scrolls = 20 # Limit to prevent infinite loop
+                max_scrolls = 500 # Uncapped for production data mining
                 
                 for _ in range(max_scrolls):
                     await page.evaluate("window.scrollTo(0, document.body.scrollHeight);")

@@ -39,7 +39,10 @@ def setup_db():
             body_type TEXT,
             city TEXT,
             no_of_owners INTEGER,
-            permanent_url TEXT
+            permanent_url TEXT,
+            meter_not_tampered INTEGER,
+            non_flooded INTEGER,
+            core_structure_intact INTEGER
         )
     ''')
     
@@ -61,12 +64,14 @@ def setup_db():
     return conn
 
 def insert_data(conn):
-    input_file = Path("data/cars_clean.json")
+    input_file = Path("data/cars_fast.json")
     if not input_file.exists():
-        input_file = Path("data/cars_with_scores.json")
+        input_file = Path("data/cars_clean.json")
         if not input_file.exists():
-            logger.error("No valid dataset found.")
-            return
+            input_file = Path("data/cars_with_scores.json")
+            if not input_file.exists():
+                logger.error("No valid dataset found.")
+                return
         
     with open(input_file, "r", encoding="utf-8") as f:
         cars = json.load(f)
@@ -87,11 +92,12 @@ def insert_data(conn):
             # Upsert vehicle
             cursor.execute('''
                 INSERT OR REPLACE INTO vehicles 
-                (id, make, model, variant, year, mileage, price, fuel_type, transmission, body_type, city, no_of_owners, permanent_url)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (id, make, model, variant, year, mileage, price, fuel_type, transmission, body_type, city, no_of_owners, permanent_url, meter_not_tampered, non_flooded, core_structure_intact)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ''', (v_id, validated.make, validated.model_name, validated.variant, validated.year, 
                   validated.mileage, validated.price, validated.fuel_type, validated.transmission, 
-                  validated.body_type, validated.city, validated.no_of_owners, validated.permanent_url))
+                  validated.body_type, validated.city, validated.no_of_owners, validated.permanent_url,
+                  validated.meter_not_tampered, validated.non_flooded, validated.core_structure_intact))
             
             # Insert inspection
             scores = validated.condition_ratings or {}

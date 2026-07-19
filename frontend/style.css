@@ -45,6 +45,21 @@ select.form-input {
     background-size: 1rem;
 }
 
+/* Fix dropdown options being white on white in some browsers */
+select.form-input option, select.form-input optgroup {
+    background-color: #1a1a24;
+    color: white;
+}
+
+/* Fix autofill going white */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #1a1a24 inset !important;
+    -webkit-text-fill-color: white !important;
+}
+
 /* Entrance Animations with correct easings (Apple style) */
 @keyframes slideUpIn {
     0% { opacity: 0; transform: translateY(20px); }
@@ -84,15 +99,30 @@ select.form-input {
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Smooth Scroll Container */
-.scroll-container {
-    height: 300vh; /* Make enough room to scroll to play video */
-    position: relative;
+/* Custom Slider (Apple style) */
+.custom-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    outline: none;
+    transition: background 0.2s;
 }
 
-.content-layer {
-    position: absolute;
-    top: 100vh; /* Start content after initial video view */
-    width: 100%;
-    z-index: 10;
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: transform 0.1s;
+}
+
+.custom-slider::-webkit-slider-thumb:active {
+    transform: scale(1.1);
+    background: #0A84FF;
 }

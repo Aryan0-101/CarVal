@@ -16,6 +16,7 @@ import shap
 import json
 import sqlite3
 from datetime import datetime
+import os
 
 app = FastAPI(title="Vehicle Valuation API")
 
@@ -73,14 +74,13 @@ def predict(req: PredictRequest):
         
         X_processed = preprocessor.transform(df)
         
-        # Conformal Prediction Intervals
-        # CrossConformalRegressor returns (points, intervals)
+        # Conformal Prediction Intervals (in log space)
         pred, pis = mapie_model.predict_interval(X_processed)
-        pred_val = float(pred[0])
         
-        # pis has shape (n_samples, 2, n_levels)
-        ci_lower = float(pis[0, 0, 0])
-        ci_upper = float(pis[0, 1, 0])
+        # Transform back from log1p space to absolute rupees
+        pred_val = float(np.expm1(pred[0]))
+        ci_lower = max(0.0, float(np.expm1(pis[0, 0, 0])))
+        ci_upper = float(np.expm1(pis[0, 1, 0]))
         
         # Pricing Factors (Feature Importances)
         shap_dict = {}
@@ -92,16 +92,16 @@ def predict(req: PredictRequest):
 
             # Extract base estimator from Mapie wrapper
             est = getattr(mapie_model, "_mapie_regressor", None)
-            if est and hasattr(est, "single_estimator_"):
-                base_model = est.single_estimator_
-            elif hasattr(mapie_model, "estimator_"):
-                base_model = mapie_model.estimator_
-            else:
-                base_model = None
+            base_model = None
+            if est:
+                base_model = getattr(getattr(est, "estimator_", None), "single_estimator_", None)
+            
+            if not base_model:
+                base_model = getattr(mapie_model, "estimator_", None)
 
             if base_model and hasattr(base_model, "feature_importances_"):
                 vals = base_model.feature_importances_
-                # Normalize them to sum to 1.0 (or just return raw)
+                # Normalize them to sum to 1.0
                 total = sum(vals)
                 if total > 0 and len(feature_names) == len(vals):
                     for i, col in enumerate(feature_names):
@@ -130,6 +130,58 @@ def get_history():
     df = pd.read_sql_query("SELECT id, timestamp, prediction FROM predictions ORDER BY id DESC LIMIT 50", conn)
     conn.close()
     return df.to_dict(orient="records")
+
+@app.get("/metadata")
+def get_metadata():
+    v_db_path = scraper_path / "data" / "vehicles.db"
+    if not v_db_path.exists():
+        return {}
+    
+    conn = sqlite3.connect(v_db_path)
+    cursor = conn.cursor()
+    cursor.execute("SELECT make, model, variant FROM vehicles WHERE make IS NOT NULL AND model IS NOT NULL")
+    rows = cursor.fetchall()
+    
+    cursor.execute("SELECT DISTINCT city FROM vehicles WHERE city IS NOT NULL")
+    city_rows = cursor.fetchall()
+    conn.close()
+    
+    cities = sorted([r[0].strip().title() for r in city_rows])
+    
+    # Build hierarchy: Make -> Model -> List[Variant]
+    hierarchy = {}
+    for make, model, variant in rows:
+        make = make.strip().title()
+        model = model.strip()
+        variant = variant.strip() if variant else "Standard"
+        
+        if make not in hierarchy:
+            hierarchy[make] = {}
+        if model not in hierarchy[make]:
+            hierarchy[make][model] = set()
+            
+        hierarchy[make][model].add(variant)
+        
+    # Convert sets to sorted lists
+    for make in hierarchy:
+        for model in hierarchy[make]:
+            hierarchy[make][model] = sorted(list(hierarchy[make][model]))
+            
+    return {
+        "hierarchy": hierarchy,
+        "cities": cities
+    }
+
+@app.get("/evaluation_metrics")
+def get_metrics():
+    report_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "scraper", "models", "report.txt")
+    if not os.path.exists(report_path):
+        return {"error": "Report not found"}
+    
+    with open(report_path, "r") as f:
+        content = f.read()
+        
+    return {"report_text": content}
 
 if __name__ == "__main__":
     import uvicorn

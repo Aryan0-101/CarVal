@@ -27,7 +27,8 @@ MODELS_DIR = Path(__file__).resolve().parent / "models"
 def train_models():
     conn = sqlite3.connect(DB_PATH)
     query = '''
-    SELECT v.id, v.make, v.model, v.year, v.mileage, v.price, v.fuel_type, v.transmission, v.body_type, v.no_of_owners,
+    SELECT v.id, v.make, v.model, v.variant, v.year, v.mileage, v.price, v.fuel_type, v.transmission, v.body_type, v.no_of_owners, v.city,
+           v.meter_not_tampered, v.non_flooded, v.core_structure_intact,
            i.engine_transmission_chassis, i.fuel_ignition_other, i.interiors_ac, i.exteriors_lights, i.tyres_clutch_brakes
     FROM vehicles v
     LEFT JOIN inspection i ON v.id = i.vehicle_id
@@ -38,15 +39,17 @@ def train_models():
     # Drop records without price
     df = df.dropna(subset=['price'])
     
-    y = df['price']
+    # Use log price to handle heteroscedasticity (varying price ranges)
+    y = np.log1p(df['price'])
     X = df.drop(columns=['price', 'id'])
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
     # Define Column Transformer
     numeric_features = ['year', 'mileage', 'no_of_owners', 'vehicle_age', 'mileage_per_year', 'avg_inspection_score',
-                        'engine_transmission_chassis', 'fuel_ignition_other', 'interiors_ac', 'exteriors_lights', 'tyres_clutch_brakes']
-    categorical_features = ['make', 'model', 'fuel_type', 'transmission', 'body_type']
+                        'engine_transmission_chassis', 'fuel_ignition_other', 'interiors_ac', 'exteriors_lights', 'tyres_clutch_brakes',
+                        'meter_not_tampered', 'non_flooded', 'core_structure_intact']
+    categorical_features = ['make', 'model', 'variant', 'fuel_type', 'transmission', 'body_type', 'city']
     
     preprocessor = Pipeline([
         ('engineer', FeatureEngineer()),
@@ -86,12 +89,23 @@ def train_models():
         mapie_model = CrossConformalRegressor(estimator=model, confidence_level=0.90, cv=5, random_state=42)
         mapie_model.fit_conformalize(X_train_processed, y_train)
         
-        preds = mapie_model.predict(X_test_processed)
-        r2 = r2_score(y_test, preds)
-        mae = mean_absolute_error(y_test, preds)
-        rmse = np.sqrt(np.mean((y_test - preds)**2))
+        preds, pis = mapie_model.predict_interval(X_test_processed)
         
-        result_str = f"{name} - MAE: {mae:,.2f}, RMSE: {rmse:,.2f}, R2: {r2:.4f}"
+        # Convert back to original scale for interpretable metrics
+        y_test_exp = np.expm1(y_test)
+        preds_exp = np.expm1(preds)
+        
+        r2 = r2_score(y_test_exp, preds_exp)
+        mae = mean_absolute_error(y_test_exp, preds_exp)
+        rmse = np.sqrt(np.mean((y_test_exp - preds_exp)**2))
+        
+        # Calculate coverage (Mapie returns intervals in log space, transform back)
+        ci_lower = np.expm1(pis[:, 0, 0])
+        ci_upper = np.expm1(pis[:, 1, 0])
+        coverage = np.mean((y_test_exp >= ci_lower) & (y_test_exp <= ci_upper))
+        avg_width = np.mean(ci_upper - ci_lower)
+        
+        result_str = f"{name} - MAE: {mae:,.2f}, RMSE: {rmse:,.2f}, R2: {r2:.4f}, Coverage: {coverage:.2%}, Avg Width: {avg_width:,.2f}"
         logger.info(result_str)
         report_lines.append(result_str + "\n")
         
