@@ -86,7 +86,7 @@
     document.addEventListener('DOMContentLoaded', async () => {
         try {
             const API_BASE = import.meta.env.VITE_API_URL || 'https://museum-chronicles-folder-painted.trycloudflare.com';
-            const resp = await fetch(`${API_BASE}/api/evaluation_metrics`);
+            const resp = await fetch(`${API_BASE}/evaluation_metrics`);
             if (resp.ok) {
                 const data = await resp.json();
                 const report = data.report_text;

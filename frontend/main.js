@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const API_BASE = import.meta.env.VITE_API_URL || 'https://museum-chronicles-folder-painted.trycloudflare.com';
     
     try {
-        const metaResp = await fetch(`${API_BASE}/api/metadata`);
+        const metaResp = await fetch(`${API_BASE}/metadata`);
         if (metaResp.ok) {
             const data = await metaResp.json();
             hierarchy = data.hierarchy;
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
 
         try {
-            const response = await fetch(`${API_BASE}/api/predict`, {
+            const response = await fetch(`${API_BASE}/predict`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
