@@ -45,7 +45,6 @@ history.db
 backend/history.db
 scraper/data/*.json
 !scraper/data/.keep
-scraper/models/*.pkl
 !scraper/models/.keep
 animation frames/
 design_system/
