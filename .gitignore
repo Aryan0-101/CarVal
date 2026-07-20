@@ -51,3 +51,9 @@ animation frames/
 design_system/
 GUIDE.md
 implementation.md
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
