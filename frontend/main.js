@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Fetch Metadata for dropdowns
     let hierarchy = {};
-    const API_BASE = 'https://65.1.147.18.nip.io';
+    const API_BASE = 'https://52.66.208.16.nip.io';
     
     try {
         const metaResp = await fetch(`${API_BASE}/metadata`);
