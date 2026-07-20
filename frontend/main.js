@@ -57,7 +57,118 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("Failed to fetch metadata:", e);
     }
 
+    // ---- Optimized Frame Animation Logic ----
+    const canvas = document.getElementById('video-canvas');
+    let updateMaxScroll = () => {};
+    
+    if (canvas) {
+        const context = canvas.getContext('2d');
+        const frameCount = 201;
+        const frames = [];
+        let maxScroll = 1;
+        let initialized = false;
 
+        updateMaxScroll = () => {
+            maxScroll = Math.max(document.body.scrollHeight - window.innerHeight, 1);
+        };
+
+        const drawFrame = (img, progress) => {
+            if (!img || !img.complete || img.naturalHeight === 0) return;
+            const w = canvas.width;
+            const h = canvas.height;
+            const imgRatio = img.width / img.height;
+            const canvasRatio = w / h;
+            
+            const scale = 1 + (progress * 0.05); 
+            let drawW, drawH, drawX, drawY;
+            
+            if (canvasRatio > imgRatio) {
+                drawW = w * scale;
+                drawH = (w / imgRatio) * scale;
+            } else {
+                drawW = (h * imgRatio) * scale;
+                drawH = h * scale;
+            }
+            drawX = (w - drawW) / 2;
+            drawY = (h - drawH) / 2;
+            
+            context.clearRect(0, 0, w, h);
+            context.drawImage(img, drawX, drawY, drawW, drawH);
+        };
+
+        const updateImage = (scrollY) => {
+            if (!initialized || frames.length === 0) return;
+            let progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+            const frameIndex = Math.min(frameCount - 1, Math.floor(progress * frameCount));
+            
+            let img = frames[frameIndex];
+            if (!img || !img.complete || img.naturalHeight === 0) {
+                for (let i = frameIndex; i >= 0; i--) {
+                    if (frames[i] && frames[i].complete && frames[i].naturalHeight !== 0) {
+                        img = frames[i];
+                        break;
+                    }
+                }
+            }
+            if (img) drawFrame(img, progress);
+        };
+
+        // Initialize immediately with just the first frame
+        const firstImg = new Image();
+        firstImg.src = `/frames/ezgif-frame-001.png`;
+        firstImg.onload = () => {
+            frames[0] = firstImg;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            updateMaxScroll();
+            initialized = true;
+            updateImage(window.scrollY);
+            canvas.style.opacity = '0.4'; // Subtle fade-in
+        };
+
+        // Lazy load the rest in the background after the page has fully loaded
+        window.addEventListener('load', () => {
+            const loadFrames = () => {
+                let currentFrame = 2;
+                const loadNext = () => {
+                    if (currentFrame > frameCount) return;
+                    const img = new Image();
+                    const frameNum = currentFrame.toString().padStart(3, '0');
+                    img.src = `/frames/ezgif-frame-${frameNum}.png`;
+                    frames[currentFrame - 1] = img;
+                    currentFrame++;
+                    // stagger loading to avoid network blocking
+                    setTimeout(loadNext, 15);
+                };
+                loadNext();
+            };
+            
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadFrames);
+            } else {
+                setTimeout(loadFrames, 1000);
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (!initialized) return;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            updateMaxScroll();
+            updateImage(window.scrollY);
+        });
+
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateImage(window.scrollY);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+    }
 
     // ---- Form Submission Logic ----
     const form = document.getElementById('predict-form');
@@ -104,6 +215,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     if (valDisplay) valDisplay.innerText = slider.value;
                 });
                 resultDisplayContainer.classList.add('hidden');
+                updateMaxScroll();
                 
                 const variantSelect = document.getElementById('model_variant');
                 if (variantSelect) {
@@ -201,6 +313,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // Render Result
             resultDisplayContainer.classList.remove('hidden');
+            setTimeout(updateMaxScroll, 50);
             
             resultDisplay.innerHTML = `
                 <div class="text-center">
@@ -218,6 +331,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         } catch (err) {
             resultDisplayContainer.classList.remove('hidden');
+            setTimeout(updateMaxScroll, 50);
             resultDisplay.innerHTML = `
                 <div class="text-center text-red-600 p-4 bg-red-50 rounded-xl border border-red-200">
                     <p class="font-medium">Failed to connect to valuation engine.</p>
