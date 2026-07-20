@@ -24,13 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const scale = 1 + (progress * 0.1); 
         let drawW, drawH, drawX, drawY;
         
-        if (canvasRatio > imgRatio) {
-            drawW = w * scale;
-            drawH = (w / imgRatio) * scale;
-        } else {
-            drawW = (h * imgRatio) * scale;
-            drawH = h * scale;
-        }
+        // Use 'contain' style scaling so the car isn't cropped out on mobile screens
+        const baseScale = Math.min(w / img.width, h / img.height);
+        
+        // Slightly enlarge it so it feels immersive. On mobile (portrait), enlarge a bit more so it fills the width nicely.
+        const mobileMultiplier = (h > w) ? 1.8 : 1.2;
+        const finalScale = baseScale * mobileMultiplier * scale;
+        
+        drawW = img.width * finalScale;
+        drawH = img.height * finalScale;
         drawX = (w - drawW) / 2;
         drawY = (h - drawH) / 2;
         
