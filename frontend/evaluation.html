@@ -13,7 +13,12 @@
       theme: {
         extend: {
           colors: {
-            "background": "#0b1326",
+            "background": "#f8fafc",
+            "surface": "#ffffff",
+            "border": "#e2e8f0",
+            "ink": "#0f172a",
+            "ink-muted": "#64748b",
+            "accent": "#0f172a",
           },
           fontFamily: {
             "display": ["Outfit", "sans-serif"],
@@ -28,52 +33,51 @@
   <!-- Marked.js for Markdown parsing -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
-    .markdown-body h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #fff; }
-    .markdown-body h2 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #e2e8f0; }
-    .markdown-body h3 { font-size: 1.1rem; font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.5rem; color: #cbd5e1; }
-    .markdown-body p { margin-bottom: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.7); }
-    .markdown-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: rgba(255, 255, 255, 0.7); }
+    .markdown-body h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #0f172a; }
+    .markdown-body h2 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #1e293b; }
+    .markdown-body h3 { font-size: 1.1rem; font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.5rem; color: #334155; }
+    .markdown-body p { margin-bottom: 1rem; line-height: 1.6; color: #475569; }
+    .markdown-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #475569; }
     .markdown-body li { margin-bottom: 0.25rem; }
-    .markdown-body strong { color: #fff; font-weight: 600; }
-    .markdown-body pre { background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.1); }
-    .markdown-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: #0A84FF; }
+    .markdown-body strong { color: #0f172a; font-weight: 600; }
+    .markdown-body pre { background: #f1f5f9; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1rem; border: 1px solid #e2e8f0; }
+    .markdown-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: #0f172a; }
   </style>
 </head>
-<body class="text-white min-h-screen relative overflow-x-hidden bg-background">
+<body class="text-ink min-h-screen relative overflow-x-hidden bg-background">
   <!-- TopNavBar -->
-  <header class="bg-black/50 backdrop-blur-2xl border-b border-white/10 fixed top-0 w-full z-50 transition-all duration-300 ease-in-out">
-    <div class="flex justify-between items-center px-4 md:px-8 h-16 w-full mx-auto max-w-[1440px]">
-      <div class="font-display text-xl md:text-2xl font-bold tracking-tight text-white cursor-pointer" onclick="window.location.href='/'">
+  <header class="bg-surface border-b border-border sticky top-0 w-full z-50">
+    <div class="flex justify-between items-center px-4 md:px-8 h-16 w-full mx-auto max-w-5xl">
+      <div class="font-display text-xl font-bold tracking-tight text-ink cursor-pointer" onclick="window.location.href='/'">
         CarVal
       </div>
       <nav class="hidden md:flex items-center gap-8 h-full">
-        <a href="/" class="text-sm text-white/70 hover:text-white font-medium transition-colors duration-150 cursor-pointer">Predict</a>
-        <a href="/evaluation.html" class="text-sm text-[#0A84FF] font-medium transition-colors duration-150 cursor-pointer">Model Evaluation</a>
+        <a href="/" class="text-sm text-ink-muted hover:text-ink font-medium transition-colors duration-150 cursor-pointer">Predict</a>
+        <a href="/evaluation.html" class="text-sm text-ink font-semibold transition-colors duration-150 cursor-pointer">Model Evaluation</a>
       </nav>
     </div>
   </header>
 
-  <main class="max-w-[1024px] mx-auto px-4 md:px-8 pt-32 pb-[100px]">
-      <div class="mb-12 border-b border-white/10 pb-8 enter-stage">
-        <h1 class="text-4xl font-bold tracking-tight text-white mb-3">Model Evaluation Dashboard</h1>
-        <p class="text-lg text-white/60 max-w-2xl">Transparency is key to trust. Here are the exact empirical metrics measured on a held-out test set for our valuation engine.</p>
+  <main class="max-w-5xl mx-auto px-4 md:px-8 pt-12 pb-24">
+      <div class="mb-12 border-b border-border pb-8">
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-ink mb-3">Model Evaluation Dashboard</h1>
+        <p class="text-lg text-ink-muted max-w-2xl">Transparency is key to trust. Here are the exact empirical metrics measured on a held-out test set for our valuation engine.</p>
       </div>
 
-      <div id="loading" class="text-white/60 py-10 flex items-center gap-4 enter-stage delay-100">
-         <span class="w-5 h-5 border-2 border-white/50 border-t-white rounded-full animate-spin"></span> Fetching live model metrics...
+      <div id="loading" class="text-ink-muted py-10 flex items-center gap-4">
+         <span class="w-5 h-5 border-2 border-border border-t-ink rounded-full animate-spin"></span> Fetching live model metrics...
       </div>
 
-      <div id="metrics-container" class="hidden flex flex-col gap-8 enter-stage delay-100">
+      <div id="metrics-container" class="hidden flex flex-col gap-8">
         <!-- Main Stats Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="stats-grid">
             <!-- Populated by JS -->
         </div>
         
         <!-- Raw Report -->
-        <div class="glass-panel rounded-2xl p-8 border border-white/10 mt-8 relative overflow-hidden">
-            <div class="absolute -top-32 -right-32 w-64 h-64 bg-purple-500 rounded-full blur-[100px] opacity-10 pointer-events-none"></div>
-            <h3 class="text-xl font-semibold mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-purple-400">terminal</span> Raw Test Set Log</h3>
-            <pre id="raw-log" class="bg-black/50 p-6 rounded-xl overflow-x-auto text-xs md:text-sm text-white/80 border border-white/5 font-mono leading-relaxed"></pre>
+        <div class="bg-surface rounded-xl p-8 border border-border mt-8">
+            <h3 class="text-lg font-semibold mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-ink-muted">terminal</span> Raw Test Set Log</h3>
+            <pre id="raw-log" class="bg-[#0f172a] p-6 rounded-xl overflow-x-auto text-xs md:text-sm text-[#e2e8f0] border border-[#1e293b] font-mono leading-relaxed shadow-inner"></pre>
         </div>
       </div>
   </main>
@@ -91,8 +95,6 @@
                 document.getElementById('metrics-container').classList.remove('hidden');
                 document.getElementById('raw-log').textContent = report || "No report available.";
                 
-                // Parse Best Model (e.g. Best model: XGBoost (R2: 0.9009))
-                // And we want the line for the best model to extract MAE, RMSE, Coverage.
                 let bestModelMatch = report.match(/Best model: (\w+)/);
                 let bestModel = bestModelMatch ? bestModelMatch[1] : null;
                 
@@ -100,38 +102,34 @@
                     const lines = report.split('\n');
                     const bestLine = lines.find(l => l.startsWith(bestModel) && l.includes('MAE'));
                     if (bestLine) {
-                        // Extract metrics: XGBoost - MAE: 65,017.90, RMSE: 121,360.11, R2: 0.9009, Coverage: 90.50%, Avg Width: 345,000.00
                         const mae = bestLine.match(/MAE:\s*([0-9.,]+)/)?.[1];
                         const r2 = bestLine.match(/R2:\s*([0-9.]+)/)?.[1];
                         const coverage = bestLine.match(/Coverage:\s*([0-9.,%]+)/)?.[1] || "N/A";
-                        const width = bestLine.match(/Avg Width:\s*([0-9.,]+)/)?.[1] || "N/A";
                         
                         const grid = document.getElementById('stats-grid');
                         grid.innerHTML = `
-                            <div class="glass-panel p-6 rounded-2xl flex flex-col gap-2">
-                                <span class="text-xs uppercase tracking-widest text-white/50 font-medium">Model Architecture</span>
-                                <span class="text-3xl font-bold text-white tracking-tight">${bestModel}</span>
+                            <div class="bg-surface p-6 rounded-xl border border-border flex flex-col gap-2 shadow-sm">
+                                <span class="text-xs uppercase tracking-widest text-ink-muted font-medium">Architecture</span>
+                                <span class="text-3xl font-bold text-ink tracking-tight">${bestModel}</span>
                             </div>
-                            <div class="glass-panel p-6 rounded-2xl flex flex-col gap-2 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-green-500/5"></div>
-                                <span class="text-xs uppercase tracking-widest text-white/50 font-medium z-10">R² Accuracy Score</span>
-                                <span class="text-3xl font-bold text-[#32d74b] tracking-tight z-10">${r2}</span>
+                            <div class="bg-surface p-6 rounded-xl border border-border flex flex-col gap-2 shadow-sm relative overflow-hidden">
+                                <span class="text-xs uppercase tracking-widest text-ink-muted font-medium z-10">R² Accuracy</span>
+                                <span class="text-3xl font-bold text-green-600 tracking-tight z-10">${r2}</span>
                             </div>
-                            <div class="glass-panel p-6 rounded-2xl flex flex-col gap-2">
-                                <span class="text-xs uppercase tracking-widest text-white/50 font-medium">Empirical Coverage</span>
-                                <span class="text-3xl font-bold text-[#0A84FF] tracking-tight">${coverage}</span>
+                            <div class="bg-surface p-6 rounded-xl border border-border flex flex-col gap-2 shadow-sm">
+                                <span class="text-xs uppercase tracking-widest text-ink-muted font-medium">Empirical Coverage</span>
+                                <span class="text-3xl font-bold text-ink tracking-tight">${coverage}</span>
                             </div>
-                            <div class="glass-panel p-6 rounded-2xl flex flex-col gap-2">
-                                <span class="text-xs uppercase tracking-widest text-white/50 font-medium">Mean Absolute Error</span>
-                                <span class="text-3xl font-bold text-white tracking-tight">₹${mae}</span>
+                            <div class="bg-surface p-6 rounded-xl border border-border flex flex-col gap-2 shadow-sm">
+                                <span class="text-xs uppercase tracking-widest text-ink-muted font-medium">Mean Error</span>
+                                <span class="text-3xl font-bold text-ink tracking-tight">₹${mae}</span>
                             </div>
                         `;
                     }
                 }
-                
             }
         } catch (e) {
-            document.getElementById('loading').innerHTML = '<span class="text-red-400">Failed to load metrics. Is the backend running?</span>';
+            document.getElementById('loading').innerHTML = '<span class="text-red-600 font-medium">Failed to load metrics. Is the backend running?</span>';
         }
     });
   </script>

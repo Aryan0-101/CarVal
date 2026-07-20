@@ -6,61 +6,63 @@ body {
     font-family: 'Outfit', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #000000;
 }
 
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-/* Custom Select styling to match Apple-like inputs */
+/* Custom Select styling */
 .form-input {
     width: 100%;
     height: 2.75rem;
     padding: 0 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: white;
-    font-size: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    color: #0f172a;
+    font-size: 0.95rem;
+    font-weight: 500;
     transition: all 160ms cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
 }
 
 .form-input::placeholder {
-    color: rgba(255, 255, 255, 0.3);
+    color: #94a3b8;
+    font-weight: 400;
 }
 
 .form-input:focus {
     outline: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #0A84FF;
-    box-shadow: 0 0 0 1px #0A84FF;
+    background-color: #ffffff;
+    border-color: #0f172a;
+    box-shadow: 0 0 0 1px #0f172a;
 }
 
 select.form-input {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230f172a'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     background-size: 1rem;
 }
 
-/* Fix dropdown options being white on white in some browsers */
+/* Fix dropdown options */
 select.form-input option, select.form-input optgroup {
-    background-color: #1a1a24;
-    color: white;
+    background-color: #ffffff;
+    color: #0f172a;
 }
 
-/* Fix autofill going white */
+/* Fix autofill */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px #1a1a24 inset !important;
-    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0 30px #f8fafc inset !important;
+    -webkit-text-fill-color: #0f172a !important;
 }
 
-/* Entrance Animations with correct easings (Apple style) */
+/* Entrance Animations */
 @keyframes slideUpIn {
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -78,7 +80,7 @@ input:-webkit-autofill:active{
     animation-delay: 200ms;
 }
 
-/* Smooth Float Animation for Hero Scroll */
+/* Smooth Float Animation */
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(8px); }
@@ -88,33 +90,12 @@ input:-webkit-autofill:active{
     animation: float 2.5s ease-in-out infinite;
 }
 
-/* Video Frame Canvas */
-#video-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.8;
-    transition: opacity 300ms ease;
-}
-
-/* Glassmorphism */
-.glass-panel {
-    background: rgba(20, 20, 20, 0.4);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Custom Slider (Apple style) */
+/* Custom Slider */
 .custom-slider {
     -webkit-appearance: none;
     width: 100%;
     height: 6px;
-    background: rgba(255, 255, 255, 0.1);
+    background: #e2e8f0;
     border-radius: 4px;
     outline: none;
     transition: background 0.2s;
@@ -123,16 +104,18 @@ input:-webkit-autofill:active{
 .custom-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: #ffffff;
+    border: 1px solid #cbd5e1;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: transform 0.1s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.1s, background 0.1s;
 }
 
 .custom-slider::-webkit-slider-thumb:active {
-    transform: scale(1.1);
-    background: #0A84FF;
+    transform: scale(1.05);
+    background: #f8fafc;
+    border-color: #0f172a;
 }

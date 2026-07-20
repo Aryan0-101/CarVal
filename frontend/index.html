@@ -13,7 +13,12 @@
       theme: {
         extend: {
           colors: {
-            "background": "#0b1326",
+            "background": "#f8fafc",
+            "surface": "#ffffff",
+            "border": "#e2e8f0",
+            "ink": "#0f172a",
+            "ink-muted": "#64748b",
+            "accent": "#0f172a",
           },
           fontFamily: {
             "display-lg": ["Outfit", "sans-serif"],
@@ -31,63 +36,38 @@
   </script>
   <link rel="stylesheet" href="/style.css">
 </head>
-<body class="text-white min-h-screen relative overflow-x-hidden">
-  <!-- Video Animation Canvas -->
-  <canvas id="video-canvas"></canvas>
+<body class="text-ink min-h-screen bg-background relative overflow-x-hidden">
 
   <!-- TopNavBar -->
-  <header class="bg-black/50 backdrop-blur-2xl border-b border-white/10 fixed top-0 w-full z-50 transition-all duration-300 ease-in-out">
-    <div class="flex justify-between items-center px-4 md:px-8 h-16 w-full mx-auto max-w-[1440px]">
-      <div class="font-headline-md text-xl md:text-2xl font-bold tracking-tight text-white cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  <header class="bg-surface border-b border-border sticky top-0 w-full z-50">
+    <div class="flex justify-between items-center px-4 md:px-8 h-16 w-full mx-auto max-w-5xl">
+      <div class="font-headline-md text-xl font-bold tracking-tight text-ink cursor-pointer">
         CarVal
       </div>
       <nav class="hidden md:flex items-center gap-8 h-full">
-        <a href="/" class="text-sm text-[#0A84FF] font-medium transition-colors duration-150 cursor-pointer">Predict</a>
-        <a href="/evaluation.html" class="text-sm text-white/70 hover:text-white font-medium transition-colors duration-150 cursor-pointer">Model Evaluation</a>
+        <a href="/" class="text-sm text-ink font-semibold transition-colors duration-150">Predict</a>
+        <a href="/evaluation.html" class="text-sm text-ink-muted hover:text-ink font-medium transition-colors duration-150">Model Evaluation</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section (Peeks above fold) -->
-  <div class="min-h-[85vh] w-full flex flex-col items-center justify-center relative z-10 pt-20 pb-10" id="hero-container">
-    <div class="text-center transition-opacity duration-500" id="hero-text">
-      <h1 class="font-display-lg text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight shadow-sm">Discover True Value</h1>
-      <p class="font-body-lg text-lg md:text-xl text-white/80 max-w-2xl mx-auto tracking-tight mb-12 drop-shadow-md">
-        The most precise, AI-driven vehicle valuation engine.
+  <main class="max-w-3xl mx-auto px-4 md:px-8 pt-12 pb-24">
+    <!-- Clean Page Header -->
+    <div class="mb-10 text-center">
+      <h1 class="font-display-lg text-3xl md:text-4xl font-bold text-ink mb-3 tracking-tight">Predict Vehicle Value</h1>
+      <p class="font-body-lg text-base text-ink-muted max-w-xl mx-auto">
+        Get an empirically backed valuation based on live market data and condition metrics.
       </p>
-      
-      <!-- Smooth Float Scroll Indicator -->
-      <div class="animate-float text-white/70 flex flex-col items-center cursor-pointer" onclick="window.scrollTo({top: window.innerHeight * 0.85, behavior: 'smooth'})">
-        <span class="text-xs uppercase tracking-widest font-semibold mb-2">Scroll to Evaluate</span>
-        <span class="material-symbols-outlined text-3xl">keyboard_arrow_down</span>
-      </div>
     </div>
-  </div>
 
-  <!-- Main Content Layer -->
-  <div class="content-layer relative z-10 w-full bg-gradient-to-b from-transparent via-background/95 to-background -mt-10 pt-10">
-    <main class="max-w-[1024px] mx-auto px-4 md:px-8 pb-[100px]">
-
-      <!-- Form Container -->
-      <div class="max-w-3xl mx-auto glass-panel rounded-2xl p-6 md:p-10 enter-stage opacity-0 transform translate-y-8 delay-100 shadow-2xl border-t border-white/20 relative overflow-hidden">
-        
-        <!-- Elegant subtle glow behind form -->
-        <div class="absolute -top-32 -right-32 w-64 h-64 bg-[#0A84FF] rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
-
-        <div class="mb-8 border-b border-white/10 pb-6 flex justify-between items-end">
-          <div>
-            <h2 class="text-2xl font-semibold text-white mb-2 tracking-tight">Vehicle Specifications</h2>
-            <p class="text-sm text-white/60">Fill in the precise details of your car to generate an AI-powered valuation instantly.</p>
-          </div>
-        </div>
-
-        <form class="flex flex-col gap-10 relative z-10" id="predict-form">
-          <!-- SECTION 1: Core Details -->
-          <div class="bg-white/[0.02] p-6 rounded-xl border border-white/5">
-            <h3 class="text-[11px] text-[#0A84FF] font-bold tracking-widest uppercase mb-6 flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-[#0A84FF]/20 flex items-center justify-center">1</span> Core Details
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+    <!-- Form Container -->
+    <div class="bg-surface rounded-xl shadow-sm border border-border p-6 md:p-8">
+      <form class="flex flex-col gap-10" id="predict-form">
+        <!-- SECTION 1: Core Details -->
+        <div>
+          <h2 class="text-lg font-semibold text-ink mb-1">Core Details</h2>
+          <p class="text-sm text-ink-muted mb-6">Select the make, model, and history of the vehicle.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
             <!-- Make -->
             <div class="flex flex-col gap-1">
               <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="make">Make / Brand</label>
@@ -144,13 +124,13 @@
 
             <!-- Owners -->
             <div class="flex flex-col gap-1">
-              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="no_of_owners">Number of Owners</label>
+              <label class="text-xs font-semibold text-ink" for="no_of_owners">Number of Owners</label>
               <input class="form-input" id="no_of_owners" name="no_of_owners" placeholder="e.g. 1" type="number" required min="1" max="5"/>
             </div>
 
             <!-- Fuel Type -->
             <div class="flex flex-col gap-1">
-              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="fuel_type">Fuel Type</label>
+              <label class="text-xs font-semibold text-ink" for="fuel_type">Fuel Type</label>
               <select class="form-input" id="fuel_type" name="fuel_type" required>
                 <option disabled selected value="">Select Fuel</option>
                 <option value="Petrol">Petrol</option>
@@ -159,26 +139,25 @@
               </select>
             </div>
           </div>
+        </div>
 
-          <!-- SECTION 2: Condition Rating -->
-          <div class="bg-white/[0.02] p-6 rounded-xl border border-white/5">
-            <div class="mb-6 flex flex-col gap-1">
-              <h3 class="text-[11px] text-[#0A84FF] font-bold tracking-widest uppercase flex items-center gap-2">
-                <span class="w-5 h-5 rounded-full bg-[#0A84FF]/20 flex items-center justify-center">2</span> Condition Rating
-              </h3>
-              <p class="text-xs text-white/50 mt-2">Honestly rate your vehicle's condition from 1 (Poor) to 10 (Like New). Our model heavily weights these factors.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
+        <hr class="border-border">
+
+        <!-- SECTION 2: Condition Rating -->
+        <div>
+          <h2 class="text-lg font-semibold text-ink mb-1">Condition Rating</h2>
+          <p class="text-sm text-ink-muted mb-8">Rate the vehicle's condition from 1 (Poor) to 10 (Like New).</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
               
               <!-- Engine -->
               <div class="flex flex-col gap-3">
                 <div class="flex justify-between items-end">
                   <div>
-                    <label class="text-[12px] uppercase tracking-wider text-white/80 font-medium">Engine & Transmission</label>
-                    <div class="text-[10px] text-[#0A84FF] condition-text uppercase font-semibold tracking-wide">Like New</div>
+                    <label class="text-[12px] uppercase tracking-wider text-ink-muted font-medium">Engine & Transmission</label>
+                    <div class="text-[10px] text-accent condition-text uppercase font-semibold tracking-wide">Like New</div>
                   </div>
-                  <span class="text-lg font-bold text-white/90" id="val-engine">9.0</span>
+                  <span class="text-lg font-bold text-ink" id="val-engine">9.0</span>
                 </div>
                 <input type="range" name="engine" min="1" max="10" step="0.5" value="9.0" class="custom-slider">
               </div>
@@ -187,10 +166,10 @@
               <div class="flex flex-col gap-3">
                 <div class="flex justify-between items-end">
                   <div>
-                    <label class="text-[12px] uppercase tracking-wider text-white/80 font-medium">Fuel & Ignition</label>
-                    <div class="text-[10px] text-[#0A84FF] condition-text uppercase font-semibold tracking-wide">Like New</div>
+                    <label class="text-[12px] uppercase tracking-wider text-ink-muted font-medium">Fuel & Ignition</label>
+                    <div class="text-[10px] text-accent condition-text uppercase font-semibold tracking-wide">Like New</div>
                   </div>
-                  <span class="text-lg font-bold text-white/90" id="val-fuel">9.0</span>
+                  <span class="text-lg font-bold text-ink" id="val-fuel">9.0</span>
                 </div>
                 <input type="range" name="fuel" min="1" max="10" step="0.5" value="9.0" class="custom-slider">
               </div>
@@ -199,10 +178,10 @@
               <div class="flex flex-col gap-3">
                 <div class="flex justify-between items-end">
                   <div>
-                    <label class="text-[12px] uppercase tracking-wider text-white/80 font-medium">Interiors & AC</label>
-                    <div class="text-[10px] text-[#0A84FF] condition-text uppercase font-semibold tracking-wide">Like New</div>
+                    <label class="text-[12px] uppercase tracking-wider text-ink-muted font-medium">Interiors & AC</label>
+                    <div class="text-[10px] text-accent condition-text uppercase font-semibold tracking-wide">Like New</div>
                   </div>
-                  <span class="text-lg font-bold text-white/90" id="val-interiors">9.0</span>
+                  <span class="text-lg font-bold text-ink" id="val-interiors">9.0</span>
                 </div>
                 <input type="range" name="interiors" min="1" max="10" step="0.5" value="9.0" class="custom-slider">
               </div>
@@ -211,10 +190,10 @@
               <div class="flex flex-col gap-3">
                 <div class="flex justify-between items-end">
                   <div>
-                    <label class="text-[12px] uppercase tracking-wider text-white/80 font-medium">Exteriors & Lights</label>
-                    <div class="text-[10px] text-[#0A84FF] condition-text uppercase font-semibold tracking-wide">Like New</div>
+                    <label class="text-[12px] uppercase tracking-wider text-ink-muted font-medium">Exteriors & Lights</label>
+                    <div class="text-[10px] text-accent condition-text uppercase font-semibold tracking-wide">Like New</div>
                   </div>
-                  <span class="text-lg font-bold text-white/90" id="val-exteriors">9.0</span>
+                  <span class="text-lg font-bold text-ink" id="val-exteriors">9.0</span>
                 </div>
                 <input type="range" name="exteriors" min="1" max="10" step="0.5" value="9.0" class="custom-slider">
               </div>
@@ -223,10 +202,10 @@
               <div class="flex flex-col gap-3 md:col-span-2">
                 <div class="flex justify-between items-end">
                   <div>
-                    <label class="text-[12px] uppercase tracking-wider text-white/80 font-medium">Tyres, Clutch & Brakes</label>
-                    <div class="text-[10px] text-[#0A84FF] condition-text uppercase font-semibold tracking-wide">Like New</div>
+                    <label class="text-[12px] uppercase tracking-wider text-ink-muted font-medium">Tyres, Clutch & Brakes</label>
+                    <div class="text-[10px] text-accent condition-text uppercase font-semibold tracking-wide">Like New</div>
                   </div>
-                  <span class="text-lg font-bold text-white/90" id="val-tyres">9.0</span>
+                  <span class="text-lg font-bold text-ink" id="val-tyres">9.0</span>
                 </div>
                 <input type="range" name="tyres" min="1" max="10" step="0.5" value="9.0" class="custom-slider">
               </div>
@@ -234,77 +213,48 @@
             </div>
           </div>
 
-          <!-- SECTION 3: Trust & History -->
-          <div class="bg-white/[0.02] p-6 rounded-xl border border-white/5">
-            <h3 class="text-[11px] text-[#0A84FF] font-bold tracking-widest uppercase mb-6 flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-[#0A84FF]/20 flex items-center justify-center">3</span> Trust & History
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="checkbox" name="meter_not_tampered" id="meter_not_tampered" class="form-checkbox bg-black/30 border-white/20 text-[#0A84FF] rounded" checked>
-                <span class="text-[13px] text-white/80 font-medium">Meter Not Tampered</span>
-              </label>
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="checkbox" name="non_flooded" id="non_flooded" class="form-checkbox bg-black/30 border-white/20 text-[#0A84FF] rounded" checked>
-                <span class="text-[13px] text-white/80 font-medium">Non-Flooded</span>
-              </label>
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="checkbox" name="core_structure_intact" id="core_structure_intact" class="form-checkbox bg-black/30 border-white/20 text-[#0A84FF] rounded" checked>
-                <span class="text-[13px] text-white/80 font-medium">Core Structure Intact</span>
-              </label>
-            </div>
-          </div>
+        <hr class="border-border">
 
-          <!-- Action Row -->
-          <div class="pt-4 flex flex-col md:flex-row items-center justify-between gap-6 mt-2">
-            <p class="text-[12px] text-white/50 tracking-tight">
-              * All fields are required for maximum accuracy.
-            </p>
-            <div class="flex gap-4 w-full md:w-auto">
-              <button class="w-full md:w-auto bg-white/5 text-white/70 hover:text-white hover:bg-white/10 font-medium px-6 py-3 rounded-xl transition-all duration-150 ease-out" type="reset" id="reset-btn">
-                Start Over
-              </button>
-              <button class="w-full md:w-auto bg-[#0A84FF] text-white font-medium px-8 py-3 rounded-xl submit-btn transition-transform duration-150 ease-out active:scale-[0.97]" type="submit">
-                Calculate Valuation
-              </button>
-            </div>
+        <!-- SECTION 3: Trust & History -->
+        <div>
+          <h2 class="text-lg font-semibold text-ink mb-4">Trust & History</h2>
+          <div class="flex flex-wrap gap-6">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="meter_not_tampered" id="meter_not_tampered" class="form-checkbox border-border text-accent rounded focus:ring-accent" checked>
+              <span class="text-sm text-ink font-medium">Meter Not Tampered</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="non_flooded" id="non_flooded" class="form-checkbox border-border text-accent rounded focus:ring-accent" checked>
+              <span class="text-sm text-ink font-medium">Non-Flooded</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="core_structure_intact" id="core_structure_intact" class="form-checkbox border-border text-accent rounded focus:ring-accent" checked>
+              <span class="text-sm text-ink font-medium">Core Structure Intact</span>
+            </label>
           </div>
-        </form>
-      </div>
-      
-      <!-- Results Container (Hidden initially) -->
-      <div id="result-display-container" class="max-w-3xl mx-auto glass-panel rounded-2xl p-6 md:p-8 mt-8 hidden">
-          <h3 class="text-xl font-medium mb-6">Valuation Report</h3>
-          <div id="result-display" class="w-full">
-          </div>
-      </div>
+        </div>
 
-      <!-- Visual Footer Element -->
-      <div class="max-w-3xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 enter-stage opacity-0 transform translate-y-8 delay-200">
-        <div class="p-4 glass-panel rounded-2xl flex items-start gap-4">
-          <span class="material-symbols-outlined text-[#0A84FF]">verified</span>
-          <div>
-            <h4 class="text-[13px] font-semibold text-white mb-1 tracking-tight">Live Market Data</h4>
-            <p class="text-[13px] text-white/60 tracking-tight">Prices aggregated from 500+ dealer portals daily.</p>
+        <!-- Action Row -->
+        <div class="pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-border mt-4">
+          <div class="flex gap-3 w-full sm:w-auto ml-auto">
+            <button class="w-full sm:w-auto bg-surface text-ink font-medium px-5 py-2.5 rounded-lg border border-border hover:bg-border/50 transition-colors" type="reset" id="reset-btn">
+              Clear
+            </button>
+            <button class="w-full sm:w-auto bg-accent text-surface font-medium px-6 py-2.5 rounded-lg submit-btn hover:bg-ink transition-colors" type="submit">
+              Evaluate
+            </button>
           </div>
         </div>
-        <div class="p-4 glass-panel rounded-2xl flex items-start gap-4">
-          <span class="material-symbols-outlined text-[#0A84FF]">analytics</span>
-          <div>
-            <h4 class="text-[13px] font-semibold text-white mb-1 tracking-tight">Precision Logic</h4>
-            <p class="text-[13px] text-white/60 tracking-tight">98% accuracy on vehicles less than 10 years old.</p>
-          </div>
+      </form>
+    </div>
+    
+    <!-- Results Container (Hidden initially) -->
+    <div id="result-display-container" class="bg-surface rounded-xl border border-border shadow-sm p-6 md:p-8 mt-6 hidden" aria-live="polite">
+        <h2 class="text-lg font-semibold text-ink mb-6">Valuation Report</h2>
+        <div id="result-display" class="w-full">
         </div>
-        <div class="p-4 glass-panel rounded-2xl flex items-start gap-4">
-          <span class="material-symbols-outlined text-[#0A84FF]">security</span>
-          <div>
-            <h4 class="text-[13px] font-semibold text-white mb-1 tracking-tight">Privacy First</h4>
-            <p class="text-[13px] text-white/60 tracking-tight">No personal data required for standard search.</p>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
+    </div>
+  </main>
 
   <script type="module" src="/main.js"></script>
 </body>
