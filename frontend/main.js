@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Fetch Metadata for dropdowns
     let hierarchy = {};
-    const API_BASE = import.meta.env.VITE_API_URL || 'https://museum-chronicles-folder-painted.trycloudflare.com';
+    const API_BASE = 'https://museum-chronicles-folder-painted.trycloudflare.com';
     
     try {
         const metaResp = await fetch(`${API_BASE}/metadata`);
