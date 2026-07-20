@@ -1,0 +1,38 @@
+name: Deploy Backend to EC2
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+      - 'scraper/**'
+      - 'docker-compose.backend.yml'
+      - 'Dockerfile'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Trigger SSH Deployment
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd ~/CarVal
+          
+          echo "📥 Pulling latest code from GitHub..."
+          git fetch origin
+          git reset --hard origin/main
+          
+          echo "🔨 Rebuilding Docker container..."
+          sudo docker-compose -f docker-compose.backend.yml build
+          
+          echo "🔄 Restarting services..."
+          sudo docker-compose -f docker-compose.backend.yml down
+          sudo docker-compose -f docker-compose.backend.yml up -d
+          
+          echo "✅ Deployment successful!"
