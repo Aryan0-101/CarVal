@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>CarVal | Predict Vehicle Value</title>
+  <title>CarVal | AI Vehicle Valuation</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -13,22 +13,11 @@
       theme: {
         extend: {
           colors: {
-            "background": "#f8fafc",
-            "surface": "#ffffff",
-            "border": "#e2e8f0",
-            "ink": "#0f172a",
-            "ink-muted": "#64748b",
-            "accent": "#0f172a",
+            "background": "#0b1326",
           },
           fontFamily: {
-            "display-lg": ["Outfit", "sans-serif"],
-            "caption": ["Outfit", "sans-serif"],
-            "label-md": ["Outfit", "sans-serif"],
-            "headline-lg": ["Outfit", "sans-serif"],
-            "body-sm": ["Outfit", "sans-serif"],
-            "body-lg": ["Outfit", "sans-serif"],
-            "body-md": ["Outfit", "sans-serif"],
-            "headline-md": ["Outfit", "sans-serif"]
+            "display": ["Outfit", "sans-serif"],
+            "body": ["Outfit", "sans-serif"],
           },
         }
       }
@@ -36,230 +25,33 @@
   </script>
   <link rel="stylesheet" href="/style.css">
 </head>
-<body class="text-ink min-h-screen bg-background relative overflow-x-hidden">
+<body class="text-white min-h-screen bg-background relative overflow-hidden flex flex-col items-center justify-center">
   
-  <!-- Optimized Background Animation -->
+  <!-- Auto-rotating Background Animation -->
   <canvas id="video-canvas" class="fixed top-0 left-0 w-full h-full object-cover -z-20 transition-opacity duration-1000 opacity-0" aria-hidden="true"></canvas>
-  <div class="fixed top-0 left-0 w-full h-full -z-10 bg-background/85 backdrop-blur-[2px]"></div>
 
-  <!-- TopNavBar -->
-  <header class="bg-surface border-b border-border sticky top-0 w-full z-50">
-    <div class="flex justify-between items-center px-4 md:px-8 h-16 w-full mx-auto max-w-5xl">
-      <div class="font-headline-md text-xl font-bold tracking-tight text-ink cursor-pointer">
-        CarVal
-      </div>
-      <nav class="hidden md:flex items-center gap-8 h-full">
-        <a href="/" class="text-sm text-ink font-semibold transition-colors duration-150">Predict</a>
-        <a href="/evaluation.html" class="text-sm text-ink-muted hover:text-ink font-medium transition-colors duration-150">Model Evaluation</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Deep fade gradient overlay for text readability -->
+  <div class="fixed top-0 left-0 w-full h-full -z-10 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
 
-  <main class="max-w-3xl mx-auto px-4 md:px-8 pt-12 pb-24">
-    <!-- Clean Page Header -->
-    <div class="mb-10 text-center">
-      <h1 class="font-display-lg text-3xl md:text-4xl font-bold text-ink mb-3 tracking-tight">Predict Vehicle Value</h1>
-      <p class="font-body-lg text-base text-ink-muted max-w-xl mx-auto">
-        Get an empirically backed valuation based on live market data and condition metrics.
-      </p>
-    </div>
-
-    <!-- Form Container -->
-    <div class="bg-surface rounded-xl shadow-sm border border-border p-6 md:p-8">
-      <form class="flex flex-col gap-10" id="predict-form">
-        <!-- SECTION 1: Core Details -->
-        <div>
-          <h2 class="text-lg font-semibold text-ink mb-1">Core Details</h2>
-          <p class="text-sm text-ink-muted mb-6">Select the make, model, and history of the vehicle.</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
-            <!-- Make -->
-            <div class="flex flex-col gap-1">
-              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="make">Make / Brand</label>
-              <select class="form-input" id="make" name="make" required>
-                <option disabled selected value="">Loading Brands...</option>
-              </select>
-            </div>
-
-            <!-- Model & Variant -->
-            <div class="flex flex-col gap-1">
-              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="model_variant">Model & Variant</label>
-              <select class="form-input" id="model_variant" name="model_variant" required disabled>
-                <option disabled selected value="">Select Brand First</option>
-              </select>
-            </div>
-
-            <!-- City -->
-            <div class="flex flex-col gap-1">
-              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="city">City</label>
-              <select class="form-input" id="city" name="city" required>
-                <option disabled selected value="">Select City</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Bangalore">Bangalore</option>
-                <option value="Hyderabad">Hyderabad</option>
-                <option value="Chennai">Chennai</option>
-                <option value="Pune">Pune</option>
-                <option value="Gurgaon">Gurgaon</option>
-                <option value="Noida">Noida</option>
-                <option value="Unknown">Other / Unknown</option>
-              </select>
-            </div>
-
-            <!-- Year -->
-            <div class="flex flex-col gap-1">
-              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="year">Year of Manufacture</label>
-              <select class="form-input" id="year" name="year" required>
-                <option disabled selected value="">Select Year</option>
-                <option value="2024">2024</option>
-                <option value="2023">2023</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>
-                <option value="2019">2019</option>
-                <option value="2018">2018</option>
-              </select>
-            </div>
-
-            <!-- Mileage -->
-            <div class="flex flex-col gap-1">
-              <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="mileage">Mileage (KM)</label>
-              <input class="form-input" id="mileage" name="mileage" placeholder="e.g. 50000" type="number" required min="0"/>
-            </div>
-
-            <!-- Owners -->
-            <div class="flex flex-col gap-1">
-              <label class="text-xs font-semibold text-ink" for="no_of_owners">Number of Owners</label>
-              <input class="form-input" id="no_of_owners" name="no_of_owners" placeholder="e.g. 1" type="number" required min="1" max="5"/>
-            </div>
-
-            <!-- Fuel Type -->
-            <div class="flex flex-col gap-1">
-              <label class="text-xs font-semibold text-ink" for="fuel_type">Fuel Type</label>
-              <select class="form-input" id="fuel_type" name="fuel_type" required>
-                <option disabled selected value="">Select Fuel</option>
-                <option value="Petrol">Petrol</option>
-                <option value="Diesel">Diesel</option>
-                <option value="CNG">CNG</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <hr class="border-border">
-
-        <!-- SECTION 2: Condition Rating -->
-        <div>
-          <h2 class="text-lg font-semibold text-ink mb-1">Condition Rating</h2>
-          <p class="text-sm text-ink-muted mb-8">Rate the vehicle's condition from 1 (Poor) to 10 (Like New).</p>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-              
-              <!-- Engine -->
-              <div class="flex flex-col gap-3">
-                <div class="flex justify-between items-end">
-                  <div>
-                    <label class="text-[12px] uppercase tracking-wider text-ink-muted font-medium">Engine & Transmission</label>
-                    <div class="text-[10px] text-accent condition-text uppercase font-semibold tracking-wide">Like New</div>
-                  </div>
-                  <span class="text-lg font-bold text-ink" id="val-engine">9.0</span>
-                </div>
-                <input type="range" name="engine" min="1" max="10" step="0.5" value="9.0" class="custom-slider">
-              </div>
-              
-              <!-- Fuel & Ignition -->
-              <div class="flex flex-col gap-3">
-                <div class="flex justify-between items-end">
-                  <div>
-                    <label class="text-[12px] uppercase tracking-wider text-ink-muted font-medium">Fuel & Ignition</label>
-                    <div class="text-[10px] text-accent condition-text uppercase font-semibold tracking-wide">Like New</div>
-                  </div>
-                  <span class="text-lg font-bold text-ink" id="val-fuel">9.0</span>
-                </div>
-                <input type="range" name="fuel" min="1" max="10" step="0.5" value="9.0" class="custom-slider">
-              </div>
-
-              <!-- Interiors -->
-              <div class="flex flex-col gap-3">
-                <div class="flex justify-between items-end">
-                  <div>
-                    <label class="text-[12px] uppercase tracking-wider text-ink-muted font-medium">Interiors & AC</label>
-                    <div class="text-[10px] text-accent condition-text uppercase font-semibold tracking-wide">Like New</div>
-                  </div>
-                  <span class="text-lg font-bold text-ink" id="val-interiors">9.0</span>
-                </div>
-                <input type="range" name="interiors" min="1" max="10" step="0.5" value="9.0" class="custom-slider">
-              </div>
-
-              <!-- Exteriors -->
-              <div class="flex flex-col gap-3">
-                <div class="flex justify-between items-end">
-                  <div>
-                    <label class="text-[12px] uppercase tracking-wider text-ink-muted font-medium">Exteriors & Lights</label>
-                    <div class="text-[10px] text-accent condition-text uppercase font-semibold tracking-wide">Like New</div>
-                  </div>
-                  <span class="text-lg font-bold text-ink" id="val-exteriors">9.0</span>
-                </div>
-                <input type="range" name="exteriors" min="1" max="10" step="0.5" value="9.0" class="custom-slider">
-              </div>
-
-              <!-- Tyres & Brakes -->
-              <div class="flex flex-col gap-3 md:col-span-2">
-                <div class="flex justify-between items-end">
-                  <div>
-                    <label class="text-[12px] uppercase tracking-wider text-ink-muted font-medium">Tyres, Clutch & Brakes</label>
-                    <div class="text-[10px] text-accent condition-text uppercase font-semibold tracking-wide">Like New</div>
-                  </div>
-                  <span class="text-lg font-bold text-ink" id="val-tyres">9.0</span>
-                </div>
-                <input type="range" name="tyres" min="1" max="10" step="0.5" value="9.0" class="custom-slider">
-              </div>
-
-            </div>
-          </div>
-
-        <hr class="border-border">
-
-        <!-- SECTION 3: Trust & History -->
-        <div>
-          <h2 class="text-lg font-semibold text-ink mb-4">Trust & History</h2>
-          <div class="flex flex-wrap gap-6">
-            <label class="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" name="meter_not_tampered" id="meter_not_tampered" class="form-checkbox border-border text-accent rounded focus:ring-accent" checked>
-              <span class="text-sm text-ink font-medium">Meter Not Tampered</span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" name="non_flooded" id="non_flooded" class="form-checkbox border-border text-accent rounded focus:ring-accent" checked>
-              <span class="text-sm text-ink font-medium">Non-Flooded</span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" name="core_structure_intact" id="core_structure_intact" class="form-checkbox border-border text-accent rounded focus:ring-accent" checked>
-              <span class="text-sm text-ink font-medium">Core Structure Intact</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Action Row -->
-        <div class="pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-border mt-4">
-          <div class="flex gap-3 w-full sm:w-auto ml-auto">
-            <button class="w-full sm:w-auto bg-surface text-ink font-medium px-5 py-2.5 rounded-lg border border-border hover:bg-border/50 transition-colors" type="reset" id="reset-btn">
-              Clear
-            </button>
-            <button class="w-full sm:w-auto bg-accent text-surface font-medium px-6 py-2.5 rounded-lg submit-btn hover:bg-ink transition-colors" type="submit">
-              Evaluate
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+  <main class="z-10 text-center px-6 mt-32 relative">
+    <!-- Subtle glow behind title -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/20 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
     
-    <!-- Results Container (Hidden initially) -->
-    <div id="result-display-container" class="bg-surface rounded-xl border border-border shadow-sm p-6 md:p-8 mt-6 hidden" aria-live="polite">
-        <h2 class="text-lg font-semibold text-ink mb-6">Valuation Report</h2>
-        <div id="result-display" class="w-full">
-        </div>
+    <h1 class="font-display text-6xl md:text-8xl font-bold tracking-tight mb-6">CarVal</h1>
+    <p class="font-body text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-12 font-light">
+      AI-Powered Vehicle Valuation Engine. Get empirical market prices backed by Machine Learning and real-time depreciation metrics.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+      <a href="/predict.html" class="w-full sm:w-auto px-10 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-100 hover:scale-105 transition-all duration-300 text-lg shadow-[0_0_40px_rgba(255,255,255,0.3)]">
+        Start Valuation
+      </a>
+      <a href="/evaluation.html" class="w-full sm:w-auto px-10 py-4 bg-white/5 text-white font-semibold rounded-full border border-white/20 hover:bg-white/10 hover:border-white/40 transition-all duration-300 text-lg backdrop-blur-md">
+        Model Metrics
+      </a>
     </div>
   </main>
 
-  <script type="module" src="/main.js"></script>
+  <script src="/landing.js"></script>
 </body>
 </html>
