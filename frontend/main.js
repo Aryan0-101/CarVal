@@ -72,16 +72,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Pad with zeros: 001 to 201
         const frameNum = i.toString().padStart(3, '0');
         img.src = `/frames/ezgif-frame-${frameNum}.png`;
+        
         img.onload = () => {
             loadedFrames++;
-            if (loadedFrames === 1 && !initialized) {
-                // Initialize canvas on first frame load
+            // Instantly draw the first frame as soon as it loads so it's never blank
+            if (i === 1) {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
-                updateImage(0);
                 initialized = true;
+                updateImage(window.scrollY);
             }
         };
+        img.onerror = () => {
+            console.error(`Failed to load frame ${i}`);
+            // Still increment so we don't get permanently stuck if 1 frame drops
+            loadedFrames++; 
+        }
         frames.push(img);
     }
 
