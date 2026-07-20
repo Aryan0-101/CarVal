@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             updateMaxScroll();
             initialized = true;
             updateImage(window.scrollY);
-            canvas.style.opacity = '0.4'; // Subtle fade-in
+            canvas.style.opacity = '1'; // Full opacity fade-in, handled by overlay
         };
 
         // Lazy load the rest in the background after the page has fully loaded
