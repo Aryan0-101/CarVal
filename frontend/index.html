@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Precision Valuation | Predict Vehicle Value</title>
+  <title>CarVal | Predict Vehicle Value</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <script id="tailwind-config">
     tailwind.config = {
@@ -16,14 +16,14 @@
             "background": "#0b1326",
           },
           fontFamily: {
-            "display-lg": ["Inter", "sans-serif"],
-            "caption": ["Inter", "sans-serif"],
-            "label-md": ["Inter", "sans-serif"],
-            "headline-lg": ["Inter", "sans-serif"],
-            "body-sm": ["Inter", "sans-serif"],
-            "body-lg": ["Inter", "sans-serif"],
-            "body-md": ["Inter", "sans-serif"],
-            "headline-md": ["Inter", "sans-serif"]
+            "display-lg": ["Outfit", "sans-serif"],
+            "caption": ["Outfit", "sans-serif"],
+            "label-md": ["Outfit", "sans-serif"],
+            "headline-lg": ["Outfit", "sans-serif"],
+            "body-sm": ["Outfit", "sans-serif"],
+            "body-lg": ["Outfit", "sans-serif"],
+            "body-md": ["Outfit", "sans-serif"],
+            "headline-md": ["Outfit", "sans-serif"]
           },
         }
       }
@@ -39,7 +39,7 @@
   <header class="bg-black/50 backdrop-blur-2xl border-b border-white/10 fixed top-0 w-full z-50 transition-all duration-300 ease-in-out">
     <div class="flex justify-between items-center px-4 md:px-8 h-16 w-full mx-auto max-w-[1440px]">
       <div class="font-headline-md text-xl md:text-2xl font-bold tracking-tight text-white cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-        Precision Valuation
+        CarVal
       </div>
       <nav class="hidden md:flex items-center gap-8 h-full">
         <a href="/" class="text-sm text-[#0A84FF] font-medium transition-colors duration-150 cursor-pointer">Predict</a>
@@ -48,16 +48,16 @@
     </div>
   </header>
 
-  <!-- Hero Section (Takes up full first screen) -->
-  <div class="h-screen w-full flex flex-col items-center justify-center relative z-10" id="hero-container">
+  <!-- Hero Section (Peeks above fold) -->
+  <div class="min-h-[85vh] w-full flex flex-col items-center justify-center relative z-10 pt-20 pb-10" id="hero-container">
     <div class="text-center transition-opacity duration-500" id="hero-text">
       <h1 class="font-display-lg text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight shadow-sm">Discover True Value</h1>
       <p class="font-body-lg text-lg md:text-xl text-white/80 max-w-2xl mx-auto tracking-tight mb-12 drop-shadow-md">
         The most precise, AI-driven vehicle valuation engine.
       </p>
       
-      <!-- Bouncing Scroll Indicator -->
-      <div class="animate-bounce text-white/70 flex flex-col items-center cursor-pointer" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
+      <!-- Smooth Float Scroll Indicator -->
+      <div class="animate-float text-white/70 flex flex-col items-center cursor-pointer" onclick="window.scrollTo({top: window.innerHeight * 0.85, behavior: 'smooth'})">
         <span class="text-xs uppercase tracking-widest font-semibold mb-2">Scroll to Evaluate</span>
         <span class="material-symbols-outlined text-3xl">keyboard_arrow_down</span>
       </div>
@@ -65,7 +65,7 @@
   </div>
 
   <!-- Main Content Layer -->
-  <div class="content-layer relative z-10 w-full bg-gradient-to-b from-transparent via-background/90 to-background pt-20">
+  <div class="content-layer relative z-10 w-full bg-gradient-to-b from-transparent via-background/95 to-background -mt-10 pt-10">
     <main class="max-w-[1024px] mx-auto px-4 md:px-8 pb-[100px]">
 
       <!-- Form Container -->
@@ -74,13 +74,20 @@
         <!-- Elegant subtle glow behind form -->
         <div class="absolute -top-32 -right-32 w-64 h-64 bg-[#0A84FF] rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
 
-        <div class="mb-8 border-b border-white/10 pb-6">
-          <h2 class="text-2xl font-semibold text-white mb-2 tracking-tight">Vehicle Specifications</h2>
-          <p class="text-sm text-white/60">Fill in the precise details of your car to generate an AI-powered valuation instantly.</p>
+        <div class="mb-8 border-b border-white/10 pb-6 flex justify-between items-end">
+          <div>
+            <h2 class="text-2xl font-semibold text-white mb-2 tracking-tight">Vehicle Specifications</h2>
+            <p class="text-sm text-white/60">Fill in the precise details of your car to generate an AI-powered valuation instantly.</p>
+          </div>
         </div>
 
-        <form class="flex flex-col gap-8 relative z-10" id="predict-form">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+        <form class="flex flex-col gap-10 relative z-10" id="predict-form">
+          <!-- SECTION 1: Core Details -->
+          <div class="bg-white/[0.02] p-6 rounded-xl border border-white/5">
+            <h3 class="text-[11px] text-[#0A84FF] font-bold tracking-widest uppercase mb-6 flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-[#0A84FF]/20 flex items-center justify-center">1</span> Core Details
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
             <!-- Make -->
             <div class="flex flex-col gap-1">
               <label class="text-[11px] uppercase tracking-wider text-white/60 font-medium" for="make">Make / Brand</label>
@@ -153,13 +160,13 @@
             </div>
           </div>
 
-          <hr class="border-white/10 my-2">
-
-          <!-- Condition Category Sliders -->
-          <div>
-            <div class="mb-6 border-b border-white/10 pb-4">
-              <h3 class="text-xl font-semibold text-white mb-1">Condition Rating</h3>
-              <p class="text-sm text-white/60">Honestly rate your vehicle's condition from 1 (Poor) to 10 (Like New). Our model heavily weights these factors.</p>
+          <!-- SECTION 2: Condition Rating -->
+          <div class="bg-white/[0.02] p-6 rounded-xl border border-white/5">
+            <div class="mb-6 flex flex-col gap-1">
+              <h3 class="text-[11px] text-[#0A84FF] font-bold tracking-widest uppercase flex items-center gap-2">
+                <span class="w-5 h-5 rounded-full bg-[#0A84FF]/20 flex items-center justify-center">2</span> Condition Rating
+              </h3>
+              <p class="text-xs text-white/50 mt-2">Honestly rate your vehicle's condition from 1 (Poor) to 10 (Like New). Our model heavily weights these factors.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
@@ -227,11 +234,11 @@
             </div>
           </div>
 
-          <hr class="border-white/10 my-2">
-
-          <!-- Trust & History -->
-          <div>
-            <h3 class="text-lg font-medium text-white mb-4">Trust & History</h3>
+          <!-- SECTION 3: Trust & History -->
+          <div class="bg-white/[0.02] p-6 rounded-xl border border-white/5">
+            <h3 class="text-[11px] text-[#0A84FF] font-bold tracking-widest uppercase mb-6 flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-[#0A84FF]/20 flex items-center justify-center">3</span> Trust & History
+            </h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <label class="flex items-center gap-3 cursor-pointer">
                 <input type="checkbox" name="meter_not_tampered" id="meter_not_tampered" class="form-checkbox bg-black/30 border-white/20 text-[#0A84FF] rounded" checked>
@@ -249,13 +256,18 @@
           </div>
 
           <!-- Action Row -->
-          <div class="pt-4 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/10 mt-4">
+          <div class="pt-4 flex flex-col md:flex-row items-center justify-between gap-6 mt-2">
             <p class="text-[12px] text-white/50 tracking-tight">
               * All fields are required for maximum accuracy.
             </p>
-            <button class="w-full md:w-auto bg-[#0A84FF] text-white font-medium px-8 py-3 rounded-xl submit-btn transition-transform duration-150 ease-out active:scale-[0.97]" type="submit">
-              Calculate Valuation
-            </button>
+            <div class="flex gap-4 w-full md:w-auto">
+              <button class="w-full md:w-auto bg-white/5 text-white/70 hover:text-white hover:bg-white/10 font-medium px-6 py-3 rounded-xl transition-all duration-150 ease-out" type="reset" id="reset-btn">
+                Start Over
+              </button>
+              <button class="w-full md:w-auto bg-[#0A84FF] text-white font-medium px-8 py-3 rounded-xl submit-btn transition-transform duration-150 ease-out active:scale-[0.97]" type="submit">
+                Calculate Valuation
+              </button>
+            </div>
           </div>
         </form>
       </div>

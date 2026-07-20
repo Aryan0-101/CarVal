@@ -186,24 +186,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     const submitBtn = form.querySelector('.submit-btn');
 
     // Make sliders interactive by filling the track
-    document.querySelectorAll('input[type="range"]').forEach(slider => {
-        const updateSlider = (el) => {
-            const val = el.value;
-            const percentage = (val / 10) * 100;
-            // Apple style blue track fill
-            el.style.background = `linear-gradient(to right, #0A84FF 0%, #0A84FF ${percentage}%, rgba(255, 255, 255, 0.1) ${percentage}%, rgba(255, 255, 255, 0.1) 100%)`;
-            
-            // Update textual label
-            let labelText = "Average";
-            if (val >= 9) labelText = "Like New";
-            else if (val >= 7) labelText = "Good";
-            else if (val >= 4) labelText = "Average";
-            else labelText = "Needs Repair";
-            
-            const textElement = el.parentElement.querySelector('.condition-text');
-            if (textElement) textElement.innerText = labelText;
-        };
+    const updateSlider = (el) => {
+        const val = el.value;
+        const percentage = (val / 10) * 100;
+        // Apple style blue track fill
+        el.style.background = `linear-gradient(to right, #0A84FF 0%, #0A84FF ${percentage}%, rgba(255, 255, 255, 0.1) ${percentage}%, rgba(255, 255, 255, 0.1) 100%)`;
         
+        // Update textual label
+        let labelText = "Average";
+        if (val >= 9) labelText = "Like New";
+        else if (val >= 7) labelText = "Good";
+        else if (val >= 4) labelText = "Average";
+        else labelText = "Needs Repair";
+        
+        const textElement = el.parentElement.querySelector('.condition-text');
+        if (textElement) textElement.innerText = labelText;
+    };
+
+    document.querySelectorAll('input[type="range"]').forEach(slider => {
         // Initial call
         updateSlider(slider);
         
@@ -213,6 +213,29 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (valDisplay) valDisplay.innerText = e.target.value;
         });
     });
+
+    const resetBtn = document.getElementById('reset-btn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            setTimeout(() => {
+                document.querySelectorAll('input[type="range"]').forEach(slider => {
+                    updateSlider(slider);
+                    const valDisplay = document.getElementById(`val-${slider.name}`);
+                    if (valDisplay) valDisplay.innerText = slider.value;
+                });
+                resultDisplayContainer.classList.add('hidden');
+                
+                const variantSelect = document.getElementById('model_variant');
+                if (variantSelect) {
+                    variantSelect.innerHTML = '<option disabled selected value="">Select Brand First</option>';
+                    variantSelect.disabled = true;
+                }
+                
+                // Scroll back up to the top of the form
+                document.getElementById('predict-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 10);
+        });
+    }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
