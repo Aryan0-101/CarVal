@@ -6,6 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        predict: resolve(__dirname, 'predict.html'),
         evaluation: resolve(__dirname, 'evaluation.html'),
       },
     },
