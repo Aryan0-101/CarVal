@@ -50,13 +50,13 @@ graph TD
         F -->|joblib| G((model.pkl))
     end
 
-    subgraph Production Backend (AWS EC2)
+    subgraph Production Backend AWS EC2
         G --> H[FastAPI API]
         H -->|Let's Encrypt / Nginx| I[Exposed REST Endpoints]
         H -->|Log Request| J[(SQLite: history.db)]
     end
 
-    subgraph Edge Frontend (Cloudflare Pages)
+    subgraph Edge Frontend Cloudflare Pages
         I --> K[Vite Built SPA]
         K --> L[Landing Page / Predict UI]
     end
